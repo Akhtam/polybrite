@@ -1,7 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from './components/root';
+import {postUser} from './util/session';
 
-document.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("root")
-    ReactDOM.render(<h1>hello from React</h1>, root)
+
+document.addEventListener('DOMContentLoaded', () => {
+	window.postUser = postUser;
+	const root = document.getElementById('root');
+	ReactDOM.render(<Root />, root);
 });
