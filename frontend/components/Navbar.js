@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { logout } from '../../actions/session';
+import { NavLink, Redirect } from 'react-router-dom';
+import { logout } from '../actions/session';
 import { connect } from 'react-redux';
 
 class Navbar extends Component {
@@ -20,13 +20,13 @@ class Navbar extends Component {
 		return (
 			<nav>
 				<h2>
-					<Link to='/'>Polybrite</Link>{' '}
+					<NavLink to='/'>Polybrite</NavLink>{' '}
 				</h2>
 				<ul className='nav-links'>
 					<li>
 						{' '}
 						{!this.props.currentUser ? (
-							<Link to='/signup'>Signup</Link>
+							<NavLink to='/signup'>Signup</NavLink>
 						) : (
 							this.props.currentUser.firstName
 						)}
@@ -35,7 +35,7 @@ class Navbar extends Component {
 						{this.props.currentUser ? (
 							<span onClick={this.handleLogout}>logout</span>
 						) : (
-							<Link to='/login'>Login</Link>
+							<NavLink to='/login'>Login</NavLink>
 						)}
 					</li>
 				</ul>
