@@ -4,10 +4,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from '../reducers/';
 import thunk from 'redux-thunk';
 
-export default (preloadedState = {}) => {
+const configureStore=  (preloadedState = {}) => {
+	console.log(preloadedState)
 	return createStore(
 		rootReducer,
 		preloadedState,
 		composeWithDevTools(applyMiddleware(thunk))
 	);
 };
+
+export default configureStore
