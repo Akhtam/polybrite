@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createNewUser } from '../../actions/session';
+import { createNewUser, clearErrors } from '../../actions/session';
 
 class SignupForm extends Component {
 	constructor(props) {
@@ -10,8 +10,12 @@ class SignupForm extends Component {
 			first_name: '',
 			last_name: '',
 			password: ''
-        };
-        this.handleSubmit = this.handleSubmit.bind(this)
+		};
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	componentWillMount() {
+		this.props.clearErrors();
 	}
 
 	updateInput(inputType) {
@@ -21,22 +25,25 @@ class SignupForm extends Component {
 				[inputType]: e.target.value
 			});
 		};
-    }
-    
-    handleSubmit(e) {
-        e.preventDefault();
-        const { createNewUser } = this.props;
-		createNewUser(this.state).then(response => console.log(response))
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		const { createNewUser } = this.props;
+		createNewUser(this.state).then(response => console.log(response));
 		this.setState({
 			email: '',
 			first_name: '',
 			last_name: '',
 			password: ''
-        })
-    }
+		});
+		
+	}
 
 	render() {
-		// const err = this.props.errors.map()
+		const errs = this.props.errors.map(err => {
+			return <p>{err}</p>;
+		});
 		return (
 			<div className='signup-form'>
 				<form onSubmit={this.handleSubmit}>
@@ -74,17 +81,18 @@ class SignupForm extends Component {
 					</label>
 					<input type='submit' value='Signup' />
 				</form>
+				{errs}
 			</div>
 		);
 	}
 }
- 
 
 const mstp = state => ({
 	errors: state.errors.sessionErrors
 });
 const mdtp = dispatch => ({
-	createNewUser: formUser => dispatch(createNewUser(formUser))
+	createNewUser: formUser => dispatch(createNewUser(formUser)),
+	clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(mstp, mdtp)(SignupForm);

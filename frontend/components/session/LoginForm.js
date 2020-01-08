@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../actions/session';
+import { login, clearErrors } from '../../actions/session';
 
 class LoginForm extends Component {
 	constructor(props) {
@@ -10,6 +10,10 @@ class LoginForm extends Component {
 			password: ''
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	componentWillMount() {
+		this.props.clearErrors()
 	}
 
 	updateInput(inputType) {
@@ -32,8 +36,12 @@ class LoginForm extends Component {
 	}
 
 	render() {
+		const errs = this.props.errors.map(err => {
+			return <p>{err}</p>;
+		});
 		return (
 			<div className='login-form'>
+
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						Email:
@@ -53,13 +61,19 @@ class LoginForm extends Component {
 					</label>
 					<input type='submit' value='Signup' />
 				</form>
+				{errs}
 			</div>
 		);
 	}
 }
 
-const mapDispatchToProps = dispatch => ({
-	loginUser: formUser => dispatch(login(formUser))
+const mstp = state => ({
+	errors: state.errors.sessionErrors
 });
 
-export default connect(null, mapDispatchToProps)(LoginForm);
+const mapDispatchToProps = dispatch => ({
+	loginUser: formUser => dispatch(login(formUser)),
+	clearErrors: () => dispatch(clearErrors())
+});
+
+export default connect(mstp, mapDispatchToProps)(LoginForm);
