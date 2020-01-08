@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Navbar from './navbar/Navbar';
+import Navbar from './Navbar';
 import SignupForm from './session/SignupForm';
 import LoginForm from './session/LoginForm';
 import { AuthRoute, ProtectedRoute } from '../util/RouteUtils';
-import { Home } from '../components/home/Home';
+import { HomePage } from './home/HomePage';
 
 export default class App extends Component {
 	render() {
@@ -16,7 +16,7 @@ export default class App extends Component {
 				<Switch>
 					<AuthRoute path='/signup' component={SignupForm} />
 					<AuthRoute path='/login' component={LoginForm} />
-					<Route path='/' exact component={Home} />
+					<Route path='/' exact component={HomePage} />
 				</Switch>
 			</div>
 		);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
-import { logout } from '../../actions/session';
+import { logout } from '../actions/session';
 import { connect } from 'react-redux';
 
 class Navbar extends Component {
