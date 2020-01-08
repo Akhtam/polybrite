@@ -59,7 +59,7 @@ class LoginForm extends Component {
 							onChange={this.updateInput('password')}
 						/>
 					</label>
-					<input type='submit' value='Signup' />
+					<input type='submit' value='Login' />
 				</form>
 				{errs}
 			</div>
