@@ -5,7 +5,7 @@ import rootReducer from '../reducers/';
 import thunk from 'redux-thunk';
 
 const configureStore=  (preloadedState = {}) => {
-	console.log(preloadedState)
+
 	return createStore(
 		rootReducer,
 		preloadedState,
