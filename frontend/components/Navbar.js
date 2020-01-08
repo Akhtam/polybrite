@@ -19,9 +19,9 @@ class Navbar extends Component {
 		// const errors = 
 		return (
 			<nav>
-				<h2>
-					<NavLink to='/'>Polybrite</NavLink>{' '}
-				</h2>
+				<NavLink to='/' className='logo'>
+					<h2>polybrite</h2>
+				</NavLink>
 				<ul className='nav-links'>
 					<li>
 						{' '}
