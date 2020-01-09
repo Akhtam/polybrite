@@ -16,7 +16,7 @@ class Navbar extends Component {
 	}
 	render() {
 		// console.log(this.props)
-		// const errors = 
+		// const errors =
 		return (
 			<nav>
 				<NavLink to='/' className='logo'>
@@ -28,12 +28,17 @@ class Navbar extends Component {
 						{!this.props.currentUser ? (
 							<NavLink to='/signup'>Signup</NavLink>
 						) : (
-							this.props.currentUser.firstName
+							<span
+								className='logout-button'
+								onClick={this.handleLogout}
+							>
+								logout
+							</span>
 						)}
 					</li>
 					<li>
 						{this.props.currentUser ? (
-							<span onClick={this.handleLogout}>logout</span>
+							this.props.currentUser.firstName
 						) : (
 							<NavLink to='/login'>Login</NavLink>
 						)}

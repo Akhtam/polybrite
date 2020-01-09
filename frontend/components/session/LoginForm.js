@@ -37,8 +37,12 @@ class LoginForm extends Component {
 	}
 
 	render() {
-		const errs = this.props.errors.map(err => {
-			return <li className='error'>{err}</li>;
+		const errs = this.props.errors.map((err, i) => {
+			return (
+				<li key={i} className='error'>
+					{err}
+				</li>
+			);
 		});
 		return (
 			<div className='container'>
