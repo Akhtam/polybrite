@@ -24,8 +24,14 @@
     "lib": "lib",
     "test": "test"
   },
+  "engines": {
+    "node": "13.5.0",
+    "npm": "6.9.0"
+  },
+
   "scripts": {
-    "start": "webpack -w --mode=development"
+    "start": "webpack -w --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
