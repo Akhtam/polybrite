@@ -23,26 +23,30 @@ class Navbar extends Component {
 					<h2>polybrite</h2>
 				</NavLink>
 				<ul className='nav-links'>
-					<li>
-						{' '}
-						{!this.props.currentUser ? (
-							<NavLink to='/signup'>Signup</NavLink>
-						) : (
-							<span
-								className='logout-button'
-								onClick={this.handleLogout}
-							>
-								logout
-							</span>
-						)}
-					</li>
-					<li>
-						{this.props.currentUser ? (
-							this.props.currentUser.firstName
-						) : (
-							<NavLink to='/login'>Login</NavLink>
-						)}
-					</li>
+					<div className='nav-li'>
+						<li>
+							{' '}
+							{!this.props.currentUser ? (
+								<NavLink to='/signup'>Signup</NavLink>
+							) : (
+								<span
+									className='logout-button'
+									onClick={this.handleLogout}
+								>
+									logout
+								</span>
+							)}
+						</li>
+					</div>
+					<div className='nav-li'>
+						<li>
+							{this.props.currentUser ? (
+								this.props.currentUser.firstName
+							) : (
+								<NavLink to='/login'>Login</NavLink>
+							)}
+						</li>
+					</div>
 				</ul>
 			</nav>
 		);

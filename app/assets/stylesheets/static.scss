@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Roboto',sans-serif;
+    background-color: rgb(250, 250, 250);
 }
 * {
     margin: 0;
@@ -28,6 +29,12 @@ nav {
         display: flex;
         justify-content: space-evenly;
         list-style: none;
+        .nav-li {
+            cursor: pointer;
+            &:hover {
+                color: rgb(156, 156, 156);
+            }
+        }
     }
     
 
@@ -42,7 +49,10 @@ nav {
         color: rgb(146, 146, 146);
         text-decoration: none;
     }
+    
 }
+
+
 
 .logout-button {
     cursor: pointer;
