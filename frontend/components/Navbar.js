@@ -15,8 +15,6 @@ class Navbar extends Component {
 		<Redirect to='/' />;
 	}
 	render() {
-		// console.log(this.props)
-		// const errors =
 		return (
 			<nav>
 				<NavLink to='/' className='logo'>

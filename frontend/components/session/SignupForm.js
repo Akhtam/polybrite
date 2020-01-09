@@ -30,7 +30,7 @@ class SignupForm extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const { createNewUser } = this.props;
-		createNewUser(this.state).then(response => console.log(response));
+		createNewUser(this.state);
 		// this.setState({
 		// 	email: '',
 		// 	first_name: '',
