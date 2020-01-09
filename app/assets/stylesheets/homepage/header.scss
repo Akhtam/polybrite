@@ -1,5 +1,31 @@
+
+.top-header {
+    background-color: white;
+}
+.main-page {
+    display: flex;
+    max-width: 1272px;
+    margin: 0 auto;
+    margin-top: 4px;
+}
+
+
 .home-header {
     display: flex;
     border: 1px solid black;
     height: 350px;
+    margin: 0 auto;
+    .name-description {
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: center;
+    }
+    .header-image {
+        width: 100%;
+        height: auto;
+        border: 0;
+        
+    }
 }
