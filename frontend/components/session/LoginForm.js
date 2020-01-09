@@ -85,7 +85,10 @@ class LoginForm extends Component {
 								value='Login'
 							/>
 						</div>
-						<div className='or'> or </div>
+						<div className='or'>
+							{' '}
+							<span>or</span>{' '}
+						</div>
 						<div>
 							<input
 								type='button'

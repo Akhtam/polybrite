@@ -10,9 +10,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<div>
-				<header>
-					<Navbar />
-				</header>
+				<Navbar />
 				<Switch>
 					<AuthRoute path='/signup' component={SignupForm} />
 					<AuthRoute path='/login' component={LoginForm} />
