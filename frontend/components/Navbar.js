@@ -15,23 +15,30 @@ class Navbar extends Component {
 		<Redirect to='/' />;
 	}
 	render() {
+		// console.log(this.props)
+		// const errors =
 		return (
 			<nav>
-				<h2>
-					<NavLink to='/'>Polybrite</NavLink>{' '}
-				</h2>
+				<NavLink to='/' className='logo'>
+					<h2>polybrite</h2>
+				</NavLink>
 				<ul className='nav-links'>
 					<li>
 						{' '}
 						{!this.props.currentUser ? (
 							<NavLink to='/signup'>Signup</NavLink>
 						) : (
-							this.props.currentUser.firstName
+							<span
+								className='logout-button'
+								onClick={this.handleLogout}
+							>
+								logout
+							</span>
 						)}
 					</li>
 					<li>
 						{this.props.currentUser ? (
-							<span onClick={this.handleLogout}>logout</span>
+							this.props.currentUser.firstName
 						) : (
 							<NavLink to='/login'>Login</NavLink>
 						)}

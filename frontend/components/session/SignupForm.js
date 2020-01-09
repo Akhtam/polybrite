@@ -30,58 +30,84 @@ class SignupForm extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const { createNewUser } = this.props;
-		createNewUser(this.state);
-		this.setState({
-			email: '',
-			first_name: '',
-			last_name: '',
-			password: ''
-		});
-		
+		createNewUser(this.state).then(response => console.log(response));
+		// this.setState({
+		// 	email: '',
+		// 	first_name: '',
+		// 	last_name: '',
+		// 	password: ''
+		// });
 	}
 
 	render() {
-		const errs = this.props.errors.map(err => {
-			return <p>{err}</p>;
+
+		const errs = this.props.errors.map((err, i) => {
+			return (
+				<li key={i} className='error'>
+					{err}
+				</li>
+			);
 		});
 		return (
-			<div className='signup-form'>
-				<form onSubmit={this.handleSubmit}>
-					<label>
-						Email:
-						<input
-							type='text'
-							value={this.state.email}
-							onChange={this.updateInput('email')}
-						/>
-					</label>
-					<label>
-						First Name:
-						<input
-							type='text'
-							value={this.state.firstName}
-							onChange={this.updateInput('first_name')}
-						/>
-					</label>
-					<label>
-						Last Name:
-						<input
-							type='text'
-							value={this.state.lastName}
-							onChange={this.updateInput('last_name')}
-						/>
-					</label>
-					<label>
-						Password:
-						<input
-							type='password'
-							value={this.state.password}
-							onChange={this.updateInput('password')}
-						/>
-					</label>
-					<input type='submit' value='Signup' />
-				</form>
-				{errs}
+			<div className='container'>
+				<div className='login-box'>
+					<div className='top-box'>
+						<div className='title'>
+							<h2>Welcome</h2>
+						</div>
+
+						<div className='textbox'>
+							<input
+								placeholder='Email address'
+								className='user-input'
+								type='text'
+								value={this.state.email}
+								onChange={this.updateInput('email')}
+							/>
+						</div>
+						<div className='fname-lname'>
+							<div className='textbox'>
+								<input
+									placeholder='First Name'
+									className='fname'
+									type='text'
+									value={this.state.first_name}
+									onChange={this.updateInput('first_name')}
+								/>
+							</div>
+							<div className='textbox'>
+								<input
+									placeholder='Last Name'
+									className='lname'
+									type='text'
+									value={this.state.last_name}
+									onChange={this.updateInput('last_name')}
+								/>
+							</div>
+						</div>
+
+						<div className='textbox'>
+							<input
+								className='user-input'
+								placeholder='Password'
+								type='password'
+								value={this.state.password}
+								onChange={this.updateInput('password')}
+							/>
+						</div>
+						<div>
+							<input
+								type='button'
+								className='button'
+								onClick={this.handleSubmit}
+								value='Sign Up'
+							/>
+						</div>
+						<div className={errs.length ? 'errors' : ''}>
+							<ul>{errs}</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}

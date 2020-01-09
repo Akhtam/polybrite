@@ -1,0 +1,111 @@
+
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    .login-box {
+        width: 500px;
+        position: absolute;
+        top: 50%;
+        .top-box {
+            padding: 60px 80px;
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #344B47;
+
+            font-family: 'Roboto', sans-serif;
+            h1 {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+ .textbox {
+     width: 100%;
+     overflow: hidden;
+     padding: 8px 0;
+     margin: 0;
+
+     input {
+         height: 40px;
+         outline: none;
+         font-size: 14px;
+         font-weight: 200;
+         float: left;
+         width: 100%;
+         min-width: 160px;
+         border: 1px solid #DDDDDD;
+         padding: 10px;
+         border-radius: 3px;
+         &:hover {
+            border: 0.6px solid rgb(170, 170, 170)
+         }
+         &:focus {
+            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+            border: 1px solid rgba(81, 203, 238, 1);
+         }
+     }
+
+ }
+
+
+ .textbox input::placeholder {
+     color: #cacaca;
+ }
+
+ .button {
+     width: 100%;
+     padding: 8px;
+     border-radius: 10px;
+     border: none;
+     outline: none;
+     font-size: 20px;
+     cursor: pointer;
+     margin-top: 20px;
+     margin-right: auto;
+     margin-left: auto;
+     margin-bottom: 10px;
+     color: white;
+     background-color: #c05a35;
+     &:hover {
+         background-color: #a74c2a;
+     }
+ }
+ .fname-lname {
+     width: 100%;
+     display: flex;
+     flex-wrap: nowrap;
+     justify-content: space-between;
+     .lname {
+         float: right;
+         width: 80%;
+     }
+     .fname {
+         width: 80%;
+     }
+
+ }
+
+.errors {
+    padding: 15px;
+    border: 0.5px solid white;
+    background-color: #FDF0F4;
+    color: rgba(255, 0, 0, 0.644);
+    border-radius: 5px;
+    ul {
+        padding-left: 15px;
+        li {
+            margin-top: 5px;
+        }
+    }
+}
