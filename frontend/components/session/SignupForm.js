@@ -14,7 +14,7 @@ class SignupForm extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentWillMount() {
+	UNSAFE_componentWillMount() {
 		this.props.clearErrors();
 	}
 
@@ -40,7 +40,6 @@ class SignupForm extends Component {
 	}
 
 	render() {
-
 		const errs = this.props.errors.map((err, i) => {
 			return (
 				<li key={i} className='error'>

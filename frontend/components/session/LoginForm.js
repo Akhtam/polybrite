@@ -11,9 +11,10 @@ class LoginForm extends Component {
 			password: ''
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleDemoUser = this.handleDemoUser.bind(this);
 	}
 
-	componentWillMount() {
+	UNSAFE_componentWillMount() {
 		this.props.clearErrors();
 	}
 
@@ -34,6 +35,12 @@ class LoginForm extends Component {
 			email: '',
 			password: ''
 		});
+	}
+
+	handleDemoUser(e) {
+		e.preventDefault();
+		const { loginUser } = this.props;
+		loginUser({ email: 'jojo', password: '123456' });
 	}
 
 	render() {
@@ -76,6 +83,15 @@ class LoginForm extends Component {
 								className='button'
 								onClick={this.handleSubmit}
 								value='Login'
+							/>
+						</div>
+						<div className='or'> or </div>
+						<div>
+							<input
+								type='button'
+								className='button demo-button'
+								onClick={this.handleDemoUser}
+								value='Demo'
 							/>
 						</div>
 						<div className={errs.length ? 'errors' : ''}>

@@ -9,10 +9,12 @@
     background-position: center;
     position: relative;
     z-index: 1;
+
     .login-box {
         width: 500px;
         position: absolute;
         top: 50%;
+        
         .top-box {
             padding: 60px 80px;
         }
@@ -31,6 +33,7 @@
 
 
  .textbox {
+     
      width: 100%;
      overflow: hidden;
      padding: 8px 0;
@@ -47,6 +50,7 @@
          border: 1px solid #DDDDDD;
          padding: 10px;
          border-radius: 3px;
+
          &:hover {
             border: 0.6px solid rgb(170, 170, 170)
          }
@@ -60,27 +64,39 @@
 
 
  .textbox input::placeholder {
-     color: #cacaca;
+     color: #9c9c9c;
  }
 
  .button {
      width: 100%;
      padding: 8px;
-     border-radius: 10px;
+     border-radius: 7px;
      border: none;
      outline: none;
      font-size: 20px;
      cursor: pointer;
-     margin-top: 20px;
+     margin-top: 15px;
      margin-right: auto;
      margin-left: auto;
      margin-bottom: 10px;
-     color: white;
+     color: rgba(255, 255, 255, 0.801);
      background-color: #c05a35;
      &:hover {
          background-color: #a74c2a;
      }
  }
+ .or {
+     text-align: center;
+     color: darkgrey;
+ }
+
+ .demo-button {
+     background-color: rgb(78, 80, 131);
+     &:hover {
+         background-color: rgb(62, 64, 105);
+     }
+ }
+
  .fname-lname {
      width: 100%;
      display: flex;

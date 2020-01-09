@@ -25,3 +25,7 @@ module.exports = {
 	},
 	devtool: "source-map"
 };
+
+// {
+// 	plugins: ['@babel/plugin-proposal-class-properties'];
+// }
