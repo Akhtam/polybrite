@@ -7,7 +7,7 @@ const Header = () => {
 				<header className='home-header'>
 					<main className='name-description'>
 						<div className='poly-name-p'>
-							<h1 className='mission-header'>Master new Skill</h1>
+							<h1 className='mission-header'>Master new Skills</h1>
 							<p className='mission-description'>
 								Lorem ipsum dolor sit amet, consectetur
 								adipiscing elit, sed do eiusmod tempor
