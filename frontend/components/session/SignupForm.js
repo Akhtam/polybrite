@@ -51,57 +51,60 @@ class SignupForm extends Component {
 			<div className='container'>
 				<div className='login-box'>
 					<div className='top-box'>
-						<div className='title'>
-							<h2>Welcome</h2>
-						</div>
+						<form onSubmit={this.handleSubmit}>
+							<div className='title'>
+								<h2>Welcome</h2>
+							</div>
 
-						<div className='textbox'>
-							<input
-								placeholder='Email address'
-								className='user-input'
-								type='text'
-								value={this.state.email}
-								onChange={this.updateInput('email')}
-							/>
-						</div>
-						<div className='fname-lname'>
 							<div className='textbox'>
 								<input
-									placeholder='First Name'
-									className='fname'
+									placeholder='Email address'
+									className='user-input'
 									type='text'
-									value={this.state.first_name}
-									onChange={this.updateInput('first_name')}
+									value={this.state.email}
+									onChange={this.updateInput('email')}
 								/>
 							</div>
+							<div className='fname-lname'>
+								<div className='textbox'>
+									<input
+										placeholder='First Name'
+										className='fname'
+										type='text'
+										value={this.state.first_name}
+										onChange={this.updateInput(
+											'first_name'
+										)}
+									/>
+								</div>
+								<div className='textbox'>
+									<input
+										placeholder='Last Name'
+										className='lname'
+										type='text'
+										value={this.state.last_name}
+										onChange={this.updateInput('last_name')}
+									/>
+								</div>
+							</div>
+
 							<div className='textbox'>
 								<input
-									placeholder='Last Name'
-									className='lname'
-									type='text'
-									value={this.state.last_name}
-									onChange={this.updateInput('last_name')}
+									className='user-input'
+									placeholder='Password'
+									type='password'
+									value={this.state.password}
+									onChange={this.updateInput('password')}
 								/>
 							</div>
-						</div>
-
-						<div className='textbox'>
-							<input
-								className='user-input'
-								placeholder='Password'
-								type='password'
-								value={this.state.password}
-								onChange={this.updateInput('password')}
-							/>
-						</div>
-						<div>
-							<input
-								type='button'
-								className='button'
-								onClick={this.handleSubmit}
-								value='Sign Up'
-							/>
-						</div>
+							<div>
+								<input
+									type='submit'
+									className='form-button button'
+									value='Sign Up'
+								/>
+							</div>
+						</form>
 						<div className={errs.length ? 'errors' : ''}>
 							<ul>{errs}</ul>
 						</div>
