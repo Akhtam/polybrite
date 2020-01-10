@@ -1,0 +1,1 @@
+json.extract! course, :title, :description, :location, :requirements, :start_date, :end_date, :size, :about_creator
