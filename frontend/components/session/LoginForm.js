@@ -31,10 +31,6 @@ class LoginForm extends Component {
 		e.preventDefault();
 		const { loginUser } = this.props;
 		loginUser(this.state);
-		this.setState({
-			email: '',
-			password: ''
-		});
 	}
 
 	handleDemoUser(e) {

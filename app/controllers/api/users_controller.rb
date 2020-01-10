@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         
         if User.exists?(email: user_params[:email])
-            render json: ["That email is taken. Try another"], status: 401
+            render json: ["That email is taken. Please try another"], status: 401
         elsif @user.save
             login!(@user)
             render "api/users/show"
