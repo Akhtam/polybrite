@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormDetails } from './formHelper/FormDetails';
 
 export default class CourseForm extends Component {
 	constructor(props) {
@@ -16,6 +17,7 @@ export default class CourseForm extends Component {
 
 	render() {
 		// console.log(typeof JSON.stringify(this.state.location));
+		console.log(this.st);
 		return (
 			<div className='main-form-content'>
 				<div className='nav-form'></div>
@@ -24,42 +26,7 @@ export default class CourseForm extends Component {
 					<div className='form-detail-header'>
 						<h1>Course Details</h1>
 					</div>
-					<div className='form-detail-content'>
-						<label>
-							Title:
-							<input
-								type='text'
-								value={this.state.title}
-								onChange={this.handleChange('title')}
-							/>
-						</label>
-						<br />
-						<label>
-							City:
-							<input
-								type='text'
-								value={this.state.location.city}
-							/>
-						</label>
-						<br />
-						<label>
-							Venue:
-							<input
-								type='text'
-								value={this.state.location.venue}
-							/>
-						</label>
-						<br />
-						<label>
-							Course description:
-							<input
-								type='text'
-								onChange={this.handleChange('description')}
-								value={this.state.description}
-							/>
-						</label>
-						<br />
-					</div>
+                     <FormDetails handleChange={this.handleChange} state={this.state}/>
 					<div className='form-category-header'></div>
 					<div className='form-category-content'></div>
 				</div>
