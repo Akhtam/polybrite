@@ -24,12 +24,16 @@ nav {
 
     .logo {
         font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
+        font-weight: 400;
+        text-transform: uppercase;
         font-size: 25px;
         margin-left: 3%;
-        color: #f05537;
         animation: 1s fadein 0.4s forwards;
         opacity: 0;
+        background: linear-gradient(to right, #ff8a00 0%, #da1b60 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     a {
