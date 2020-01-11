@@ -1,5 +1,6 @@
 class Api::CoursesController < ApplicationController
     def index
+
         @courses = Course.where(is_popular: true)
         render :index
     end
@@ -9,7 +10,6 @@ class Api::CoursesController < ApplicationController
     end
 
     def create 
-        # byebug
         @course = Course.create!(course_params)
         render :show
     end

@@ -23,6 +23,11 @@ class Navbar extends Component {
 				<ul className='nav-links'>
 					<div className='nav-li'>
 						<li>
+							<NavLink to='/courses/new'>Create Course</NavLink>
+						</li>
+					</div>
+					<div className='nav-li'>
+						<li>
 							{' '}
 							{!this.props.currentUser ? (
 								<NavLink to='/signup'>Signup</NavLink>
