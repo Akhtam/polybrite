@@ -5,6 +5,7 @@ export default class CourseForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = this.props.course;
+		this.handleChange = this.handleChange.bind(this)
 	}
 
 	handleChange(inputType) {
@@ -17,7 +18,7 @@ export default class CourseForm extends Component {
 
 	render() {
 		// console.log(typeof JSON.stringify(this.state.location));
-		console.log(this.st);
+		console.log(this.state);
 		return (
 			<div className='main-form-content'>
 				<div className='nav-form'></div>

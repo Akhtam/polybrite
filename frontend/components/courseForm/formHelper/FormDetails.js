@@ -15,7 +15,7 @@ export const FormDetails = ({ handleChange, state }) => {
 				<br />
 				<label>
 					City:
-					<input type='date' value={state.location.city} />
+					<input type='text' value={state.location.city} />
 				</label>
 				<br />
 				<label>
