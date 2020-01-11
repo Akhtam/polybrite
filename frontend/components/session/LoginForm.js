@@ -55,6 +55,7 @@ class LoginForm extends Component {
 							<h2>Welcome</h2>
 						</div>
 
+<<<<<<< HEAD
 						<form onSubmit={this.handleSubmit}>
 							<div className='textbox'>
 								<input
@@ -94,6 +95,49 @@ class LoginForm extends Component {
 								<ul>{errs}</ul>
 							</div>
 						</form>
+=======
+						<div className='textbox'>
+							<input
+								placeholder='Email address'
+								className='user-input'
+								type='text'
+								value={this.state.email}
+								onChange={this.updateInput('email')}
+							/>
+						</div>
+						<div className='textbox'>
+							<input
+								className='user-input'
+								placeholder='Password'
+								type='password'
+								value={this.state.password}
+								onChange={this.updateInput('password')}
+							/>
+						</div>
+						<div>
+							<input
+								type='button'
+								className='button'
+								onClick={this.handleSubmit}
+								value='Login'
+							/>
+						</div>
+						<div className='or'>
+							{' '}
+							<span>or</span>{' '}
+						</div>
+						<div>
+							<input
+								type='button'
+								className='button demo-button'
+								onClick={this.handleDemoUser}
+								value='Demo'
+							/>
+						</div>
+						<div className={errs.length ? 'errors' : ''}>
+							<ul>{errs}</ul>
+						</div>
+>>>>>>> homepage
 					</div>
 				</div>
 			</div>

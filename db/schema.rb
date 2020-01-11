@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_06_042539) do
+ActiveRecord::Schema.define(version: 2020_01_10_003427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "location", null: false
+    t.string "requirements", null: false
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.integer "size", null: false
+    t.boolean "is_popular", default: false
+    t.string "about_creator", null: false
+    t.integer "creator_id", null: false
+    t.integer "category_id", null: false
+    t.integer "topic_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_courses_on_category_id"
+    t.index ["creator_id"], name: "index_courses_on_creator_id"
+    t.index ["location"], name: "index_courses_on_location"
+    t.index ["title"], name: "index_courses_on_title"
+    t.index ["topic_id"], name: "index_courses_on_topic_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_topics_on_name", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false

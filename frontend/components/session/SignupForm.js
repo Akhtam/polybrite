@@ -7,8 +7,8 @@ class SignupForm extends Component {
 		super(props);
 		this.state = {
 			email: '',
-			first_name: '',
-			last_name: '',
+			firstName: '',
+			lastName: '',
 			password: ''
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
