@@ -20,7 +20,7 @@ const Header = () => {
 					</main>
 					<aside className='header-img'>
 						<img
-							src='https://d3b8hk1o42ev08.cloudfront.net/wp-content/uploads/2018/08/52871508-emisferi-cerebrali-a-destra-%C3%A8-emozioni-intuizioni-creativit%C3%A0-sinistra-%C3%A8-la-logica-la-ragione-verbale-1-1-752x440.jpg'
+							src={window.testURL}
 							className='main-img'
 						/>
 					</aside>
