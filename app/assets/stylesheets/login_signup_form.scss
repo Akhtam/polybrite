@@ -23,13 +23,10 @@
             color: #344B47;
 
             font-family: 'Roboto', sans-serif;
-<<<<<<< HEAD
 
             h1 {
                 font-weight: bold;
             }
-=======
->>>>>>> homepage
         }
     }
 }
@@ -61,7 +58,6 @@
         &:focus {
             box-shadow: 0 0 5px rgba(81, 203, 238, 1);
             border: 1px solid rgba(81, 203, 238, 1);
-<<<<<<< HEAD
         }
     }
 
@@ -127,71 +123,6 @@
     }
 
 }
-=======
-         }
-     }
-
- }
-
-
- .textbox input::placeholder {
-     color: #9c9c9c;
- }
-
- .button {
-     width: 100%;
-     padding: 8px;
-     border-radius: 7px;
-     border: none;
-     outline: none;
-     font-size: 20px;
-     cursor: pointer;
-     margin-top: 15px;
-     margin-right: auto;
-     margin-left: auto;
-     margin-bottom: 10px;
-     color: rgba(255, 255, 255, 0.877);
-     background-color: rgb(219, 79, 51);
-     &:hover {
-         background-color: #F05436;
-         
-     }
- }
- .or {
-     text-align: center;
-     color: rgb(129, 129, 129);
-     border-bottom: 1px solid grey;
-     line-height: 0.1em;
-     margin: 10px 0 20px;
-     span {
-            cursor: default;
-            background:rgb(250, 250, 250);
-            padding:0 10px;
-     }
- }
-
- .demo-button {
-     background-color: rgb(78, 80, 131);
-     &:hover {
-         background-color: rgb(86, 89, 143);
-     }
- }
-
- .fname-lname {
-     width: 100%;
-     display: flex;
-     flex-wrap: nowrap;
-     justify-content: space-between;
-     .lname {
-         float: right;
-         width: 80%;
-     }
-     .fname {
-         width: 80%;
-     }
-
- }
->>>>>>> homepage
 
 .errors {
     padding: 15px;

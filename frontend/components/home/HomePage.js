@@ -12,15 +12,11 @@ class HomePage extends Component {
 		this.props.fetchCourses()
 	}
 	render() {
-<<<<<<< HEAD
-		return <div>Hello from home page</div>;
-=======
 		return (
 			<div>
 				<Header />
 			</div>
 		);
->>>>>>> homepage
 	}
 }
 
