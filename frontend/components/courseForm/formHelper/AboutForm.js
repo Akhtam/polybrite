@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const FormDetails = ({ handleChange, state }) => {
+export const FormDetails = ({ handleChange, state, handleLocation }) => {
 	return (
 		<div>
 			<div className='form-detail-content'>
@@ -15,23 +15,37 @@ export const FormDetails = ({ handleChange, state }) => {
 				<br />
 				<label>
 					City:
-					<input type='text' value={state.location.city} />
+					<input
+						type='text'
+						value={state.location.city}
+						onChange={handleLocation('city')}
+					/>
 				</label>
 				<br />
 				<label>
 					Venue:
-					<input type='text' value={state.location.venue} />
+					<input
+						type='text'
+						value={state.location.venue}
+						onChange={handleLocation('venue')}
+					/>
 				</label>
 				<br />
 				<label>
 					Course description:
-					<input
+					<textarea
 						type='text'
 						onChange={handleChange('description')}
 						value={state.description}
 					/>
 				</label>
 				<br />
+				{/* <label>
+					Add Photo:
+					<input
+						type='file'
+					/>
+				</label> */}
 			</div>
 		</div>
 	);
