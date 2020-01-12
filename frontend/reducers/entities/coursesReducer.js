@@ -6,9 +6,8 @@ const coursesReducer = (state = {}, action) => {
 		case RECEIVE_COURSES:
 			return action.courses;
 		case RECEIVE_COURSE:
-			return Object.assign({}, state, {
-				[action.course.id]: action.course
-			});
+			const course = { [action.course.id]: action.course };
+			return Object.assign({}, state, course);
 		default:
 			return state;
 	}

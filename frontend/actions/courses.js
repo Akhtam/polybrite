@@ -21,11 +21,11 @@ export const fetchCourses = () => dispatch => {
 export const fetchCourse = courseId => dispatch => {
 	return courseApiUtil
 		.fetchCourse(courseId)
-		.then(res => dispatch(receiveCourse(res.data)));
+		.then(res => dispatch(receiveCourse(res.data.course)));
 };
 
 export const createCourse = formCourse => dispatch => {
 	return courseApiUtil
 		.createCourse(formCourse)
-		.then(res => dispatch(receiveCourse(res.data)));
+		.then(res => dispatch(receiveCourse(res.data.course)));
 };

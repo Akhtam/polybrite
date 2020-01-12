@@ -33,9 +33,9 @@ export default class CourseForm extends Component {
 		};
 		let finalForm = Object.assign(this.state, loc);
 		console.log(finalForm);
-		this.props.action(finalForm).then(res => console.log(res));
+		this.props.action(finalForm).then(res => this.props.history.push(`${res.course.id}`));
 		// this
-		alert('succes');
+		// alert('succes');
 	}
 
 	render() {
