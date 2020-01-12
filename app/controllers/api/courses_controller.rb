@@ -10,6 +10,9 @@ class Api::CoursesController < ApplicationController
     end
 
     def create 
+        params[:course][:category_id] = Category.find_by(name: course_params[:category_id]).id
+        params[:course][:topic_id] = Topic.find_by(name: course_params[:topic_id]).id
+        params[:course][:creator_id] = current_user.id
         @course = Course.create!(course_params)
         render :show
     end
@@ -26,7 +29,8 @@ class Api::CoursesController < ApplicationController
             :size,
             :about_creator,
             :category_id, 
-            :topic_id
+            :topic_id,
+            :creator_id
         )
     end
 end
