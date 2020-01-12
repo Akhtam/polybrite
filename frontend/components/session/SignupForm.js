@@ -66,9 +66,7 @@ class SignupForm extends Component {
 										className='fname'
 										type='text'
 										value={this.state.first_name}
-										onChange={this.updateInput(
-											'first_name'
-										)}
+										onChange={this.updateInput('firstName')}
 									/>
 								</div>
 								<div className='textbox'>
@@ -77,7 +75,7 @@ class SignupForm extends Component {
 										className='lname'
 										type='text'
 										value={this.state.last_name}
-										onChange={this.updateInput('last_name')}
+										onChange={this.updateInput('lastName')}
 									/>
 								</div>
 							</div>

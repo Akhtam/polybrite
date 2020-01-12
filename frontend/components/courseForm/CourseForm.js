@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { FormDetails } from './formHelper/AboutForm';
+import { DetailsForm } from './formHelper/DetailsForm';
+import { Redirect } from 'react-router-dom';
 
 export default class CourseForm extends Component {
 	constructor(props) {
@@ -7,6 +9,7 @@ export default class CourseForm extends Component {
 		this.state = this.props.course;
 		this.handleChange = this.handleChange.bind(this);
 		this.handleLocation = this.handleLocation.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	handleLocation(locType) {
 		return e => {
@@ -23,6 +26,18 @@ export default class CourseForm extends Component {
 		};
 	}
 
+	handleSubmit(e) {
+		e.preventDefault();
+		let loc = {
+			location: JSON.stringify(this.state.location)
+		};
+		let finalForm = Object.assign(this.state, loc);
+		console.log(finalForm);
+		this.props.action(finalForm).then(res => console.log(res));
+		// this
+		alert('succes');
+	}
+
 	render() {
 		return (
 			<div className='main-form-content'>
@@ -32,21 +47,23 @@ export default class CourseForm extends Component {
 					<div className='form-about-header'>
 						<h1>About Course</h1>
 					</div>
-					<div className='form-about-content'>
-						<FormDetails
-							handleChange={this.handleChange}
-							state={this.state}
-							handleLocation={this.handleLocation}
-						/>
-					</div>
+					<FormDetails
+						handleChange={this.handleChange}
+						state={this.state}
+						handleLocation={this.handleLocation}
+					/>
 
 					<div className='form-details-header'>
 						<h1>Course Details</h1>
 					</div>
 					<div className='form-details-content'>
-
+						<DetailsForm
+							handleChange={this.handleChange}
+							state={this.state}
+						/>
 					</div>
 				</div>
+				<button onClick={this.handleSubmit}>Publish</button>
 			</div>
 		);
 	}

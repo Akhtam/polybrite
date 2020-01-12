@@ -7,16 +7,18 @@ const mstp = state => ({
 		title: '',
 		description: '',
 		location: {
-            city: '',
-            venue: ''
-        },
-        requirements: '',
-        startDate: '',
-        endDate: '',
-        size: 0,
-        aboutCreator: '', 
-    },
-    formType: 'Publish'
+			city: '',
+			venue: ''
+		},
+		requirements: '',
+		startDate: 'Sat, 04 Jan 2020 05:30:00 +0000',
+		endDate: 'Sat, 10 Jan 2020 05:30:00 +0000',
+		size: 1,
+		aboutCreator: '',
+		categoryId: 'Select Category',
+		topicId: ''
+	},
+	formType: 'Publish'
 });
 
 const mdtp = dispatch => ({

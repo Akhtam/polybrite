@@ -2,7 +2,7 @@ import React from 'react';
 
 export const FormDetails = ({ handleChange, state, handleLocation }) => {
 	return (
-		<div>
+		<div className='form-about-content'>
 			<div className='form-detail-content'>
 				<label>
 					Title:
