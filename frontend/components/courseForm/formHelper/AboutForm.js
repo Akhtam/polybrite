@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const FormDetails = ({handleFile, handleChange, state, handleLocation }) => {
+export const AboutForm = ({handleFile, handleChange, state, handleLocation }) => {
 	return (
 		<div className='form-about-content'>
 			<div className='form-detail-content'>

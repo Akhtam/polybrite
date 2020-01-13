@@ -7,40 +7,40 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Course.delete_all
-# Category.delete_all
-# Topic.delete_all
-# User.delete_all
+User.delete_all
+Category.delete_all
+Topic.delete_all
 
 # stime = DateTime.new(2020,1,4,5,00,00)
 # etime = DateTime.new(2020,3,1,8,00,00)
 
 # #USERS
-# u1 = User.create!(email: 'tutu@gmail.com', first_name: 'Jim', last_name: 'Halpert', password: '87654321')
-# u2 = User.create!(email: 'rara@gmail.com', first_name: 'Mic', last_name: 'Scarn', password: '5454343242')
-# u3 = User.create!(email: 'bobo@gmail.com', first_name: 'Creed', last_name: 'Cr', password: '8765432431')
-# u4 = User.create!(email: 'lolo@gmail.com', first_name: 'Yosho', last_name: 'None', password: '84354321')
+u1 = User.create!(email: 'tutu@gmail.com', first_name: 'Jim', last_name: 'Halpert', password: '87654321')
+u2 = User.create!(email: 'rara@gmail.com', first_name: 'Mic', last_name: 'Scarn', password: '5454343242')
+u3 = User.create!(email: 'bobo@gmail.com', first_name: 'Creed', last_name: 'Cr', password: '8765432431')
+u4 = User.create!(email: 'lolo@gmail.com', first_name: 'Yosho', last_name: 'None', password: '84354321')
 
-# #CATEGORIES
-# music = Category.create!(name: 'Music')
-# science = Category.create!(name: 'Science')
-# tech = Category.create!(name: 'Tech')
+#CATEGORIES
+music = Category.create!(name: 'Music')
+science = Category.create!(name: 'Science')
+tech = Category.create!(name: 'Tech')
 
-# #TOPICS
-# # Music-Category
-# piano = Topic.create!(name: 'Piano')
-# guitar = Topic.create!(name: 'Guitar')
-# violin = Topic.create!(name: 'Violin')
-# flute = Topic.create!(name: 'flute')
-# # science
-# astrobiology = Topic.create!(name: 'Astrobiology')
-# cosmology = Topic.create!(name: 'Cosmology')
-# galaxies = Topic.create!(name: 'Galaxies')
-# nebulae = Topic.create!(name: 'Nebulae')
-# # tech
-# javascript = Topic.create!(name: 'Javascript')
-# ruby = Topic.create!(name: 'Ruby')
-# redux = Topic.create!(name: 'redux')
-# d3 = Topic.create!(name: 'D3')
+#TOPICS
+# Music-Category
+piano = Topic.create!(name: 'Piano')
+guitar = Topic.create!(name: 'Guitar')
+violin = Topic.create!(name: 'Violin')
+flute = Topic.create!(name: 'flute')
+# science
+astrobiology = Topic.create!(name: 'Astrobiology')
+cosmology = Topic.create!(name: 'Cosmology')
+galaxies = Topic.create!(name: 'Galaxies')
+nebulae = Topic.create!(name: 'Nebulae')
+# tech
+javascript = Topic.create!(name: 'Javascript')
+ruby = Topic.create!(name: 'Ruby')
+redux = Topic.create!(name: 'redux')
+d3 = Topic.create!(name: 'D3')
 
 
 # s1 = Course.create!(

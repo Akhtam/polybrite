@@ -29,3 +29,7 @@ export const createCourse = formCourse => dispatch => {
 		.createCourse(formCourse)
 		.then(res => dispatch(receiveCourse(res.course)));
 };
+
+export const updateCourse = course => {
+	
+}

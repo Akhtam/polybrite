@@ -19,7 +19,7 @@ const mstp = state => ({
 		categoryId: 'Select Category',
 		topicId: ''
 	},
-	formType: 'Publish'
+	formTypeTop: 'Enlighten'
 });
 
 const mdtp = dispatch => ({

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormDetails } from './formHelper/AboutForm';
+import { AboutForm } from './formHelper/AboutForm';
 import { DetailsForm } from './formHelper/DetailsForm';
 import { Redirect } from 'react-router-dom';
 
@@ -51,21 +51,31 @@ export default class CourseForm extends Component {
 		formData.append('course[aboutCreator]', this.state.aboutCreator);
 		formData.append('course[categoryId]', this.state.categoryId);
 		formData.append('course[topicId]', this.state.topicId);
-		
-		this.props.action(formData)
+
+		this.props
+			.action(formData)
 			.then(res => this.props.history.push(`${res.course.id}`));
 	}
 
 	render() {
+		const isCreate =
+			this.props.formTypeTop !== 'Enlighten'
+				? 'Edit your Course'
+				: 'Create a Course';
 		return (
 			<div className='main-form-content'>
-				<div className='nav-form'></div>
+				<div className='nav-form'>
+					<h2>{isCreate}</h2>
+					<button className='form-header-button'>
+						{this.props.formTypeTop}
+					</button>
+				</div>
 				<div className='border-nav-form'></div>
 				<div className='form-body'>
 					<div className='form-about-header'>
 						<h1>About Course</h1>
 					</div>
-					<FormDetails
+					<AboutForm
 						state={this.state}
 						handleChange={this.handleChange}
 						handleFile={this.handleFile}

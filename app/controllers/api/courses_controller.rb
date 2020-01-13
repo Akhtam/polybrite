@@ -1,12 +1,16 @@
 class Api::CoursesController < ApplicationController
     def index
 
-        @courses = Course.all.where(id: 3)
+        @courses = Course.all
         render :index
     end
 
     def show
         @course = Course.find(params[:id])
+    end
+
+    def update
+        
     end
 
     def create 

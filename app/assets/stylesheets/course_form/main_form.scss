@@ -1,0 +1,22 @@
+.main-form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-form {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 26px 30px;
+    h2 {
+        font-weight: 100;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        color: rgb(37, 15, 73);
+    }
+    .form-header-button {
+        background-color: black;
+        color: white;
+    }
+}
