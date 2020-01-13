@@ -6,17 +6,25 @@ export default class ShowCourse extends Component {
 	}
 
 	render() {
-		const course = this.props.course
-			? Object.values(this.props.course)
-			: [];
 
+		const {
+			title,
+			location,
+			description,
+			startDate,
+			endDate,
+			requirements,
+			aboutCreator,
+			size, 
+			photoUrl,
+			creatorId
+		} = this.props.course ? this.props.course : {};
+
+		console.log(this.props.currUserId, creatorId)
 		return (
 			<div>
-				<ul>
-					{course.map((el, i) => (
-						<li key={i}>{el}</li>
-					))}
-				</ul>
+				<h1>{title}</h1>
+				<img  src={photoUrl}/>
 			</div>
 		);
 	}

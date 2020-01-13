@@ -1,3 +1,5 @@
+import { $CombinedState } from 'redux';
+
 const axios = require('axios');
 
 export const fetchCourses = () => {
@@ -5,9 +7,15 @@ export const fetchCourses = () => {
 };
 
 export const createCourse = course => {
-	return axios.post('/api/courses', { course });
+	return $.ajax({
+		url: '/api/courses',
+		method: 'POST',
+		data: course,
+		contentType: false,
+		processData: false
+	});
 };
 
 export const fetchCourse = courseId => {
-    return axios.get(`/api/courses/${courseId}`);
-}
+	return axios.get(`/api/courses/${courseId}`);
+};

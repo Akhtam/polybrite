@@ -27,5 +27,5 @@ export const fetchCourse = courseId => dispatch => {
 export const createCourse = formCourse => dispatch => {
 	return courseApiUtil
 		.createCourse(formCourse)
-		.then(res => dispatch(receiveCourse(res.data.course)));
+		.then(res => dispatch(receiveCourse(res.course)));
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const FormDetails = ({ handleChange, state, handleLocation }) => {
+export const FormDetails = ({handleFile, handleChange, state, handleLocation }) => {
 	return (
 		<div className='form-about-content'>
 			<div className='form-detail-content'>
@@ -40,12 +40,13 @@ export const FormDetails = ({ handleChange, state, handleLocation }) => {
 					/>
 				</label>
 				<br />
-				{/* <label>
+				<label>
 					Add Photo:
 					<input
+						onChange={handleFile}
 						type='file'
 					/>
-				</label> */}
+				</label>
 			</div>
 		</div>
 	);

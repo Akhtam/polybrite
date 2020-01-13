@@ -23,6 +23,7 @@ class Api::CoursesController < ApplicationController
             :title,
             :description,
             :location,
+            :photo,
             :requirements,
             :start_date,
             :end_date,
