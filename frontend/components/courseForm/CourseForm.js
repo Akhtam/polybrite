@@ -51,10 +51,8 @@ export default class CourseForm extends Component {
 		formData.append('course[aboutCreator]', this.state.aboutCreator);
 		formData.append('course[categoryId]', this.state.categoryId);
 		formData.append('course[topicId]', this.state.topicId);
-
-		// debugger
-		this.props
-			.action(formData)
+		
+		this.props.action(formData)
 			.then(res => this.props.history.push(`${res.course.id}`));
 	}
 
