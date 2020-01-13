@@ -32,6 +32,7 @@ class Course < ApplicationRecord
     validates :about_creator, :description, :end_date, :location, :requirements,
         :size, :start_date, :title, :category_id, :creator_id, :topic_id, presence: true
     
+        has_one_attached :photo
         belongs_to :category
         belongs_to :topic
         belongs_to :creator,

@@ -1,7 +1,7 @@
 class Api::CoursesController < ApplicationController
     def index
 
-        @courses = Course.where(is_popular: true)
+        @courses = Course.all.where(id: 3)
         render :index
     end
 
