@@ -16,10 +16,6 @@ class Api::CoursesController < ApplicationController
         @course = Course.create!(course_params)
         render :show
     end
-
-    def update
-        
-    end
     private 
     def course_params
         params.require(:course).permit(
