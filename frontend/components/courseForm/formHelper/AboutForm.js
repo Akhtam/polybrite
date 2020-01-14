@@ -1,12 +1,6 @@
 import React from 'react';
 
-export const AboutForm = ({
-	handleFile,
-	handleChange,
-	state,
-	handleLocation
-}) => {
-	console.log(state);
+const AboutForm = ({ handleFile, handleChange, state, handleLocation }) => {
 	return (
 		<div className='form-about-content'>
 			<div className='form-detail-content'>
@@ -54,3 +48,5 @@ export const AboutForm = ({
 		</div>
 	);
 };
+
+export default AboutForm;

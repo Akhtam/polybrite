@@ -9,18 +9,18 @@ class Api::CoursesController < ApplicationController
         @course = Course.find(params[:id])
     end
 
-    def update
-        
-    end
-
     def create 
         params[:course][:category_id] = Category.find_by(name: course_params[:category_id]).id
         params[:course][:topic_id] = Topic.find_by(name: course_params[:topic_id]).id
         params[:course][:creator_id] = current_user.id
+        debugger
         @course = Course.create!(course_params)
         render :show
     end
-    
+
+    def update
+        
+    end
     private 
     def course_params
         params.require(:course).permit(

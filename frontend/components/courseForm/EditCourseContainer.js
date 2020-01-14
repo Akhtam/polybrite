@@ -22,9 +22,7 @@ class EditCourseContainer extends Component {
 		this.props.fetchCourse(this.props.match.params.courseId);
 	}
 	render() {
-		console.log(this.props);
-        
-        if (!this.props.course) return null;
+		if (!this.props.course) return null;
 		const { course, formTypeTop, formTypeDown, action } = this.props;
 		let location = JSON.parse(course.location);
 		let topicId = '';
@@ -34,9 +32,9 @@ class EditCourseContainer extends Component {
 			course,
 			{ location },
 			{ categoryId },
-			{ topicId }
+			{ topicId },
+			{courseId: course.id}
             );
-		console.log(this.props);
 
 		return (
 			<div>
