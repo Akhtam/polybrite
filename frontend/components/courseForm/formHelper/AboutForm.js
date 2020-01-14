@@ -31,14 +31,15 @@ const AboutForm = ({ handleFile, handleChange, state, handleLocation }) => {
 					/>
 				</label>
 				<div className='upload-btn-wrapper'>
-					<button className='btn'>Upload a file</button>
+					<button className='btn required'>Upload a file</button>
 					<input type='file' name='myfile' onChange={handleFile} />
 					<span>{state.photoFile ? state.photoFile.name : ''}</span>
 				</div>
 
 				<label>
-					<span className='required'>Course description</span>
+					<span className='required'>Description</span>
 					<textarea
+						className='text-desc'
 						type='text'
 						onChange={handleChange('description')}
 						value={state.description}

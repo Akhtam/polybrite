@@ -8,6 +8,9 @@ $h2color: rgb(37, 15, 73);
 
 .form-body-back {
     background-color: rgba(248, 247, 250, 0.884);
+    border-bottom: 1px solid #D2D6DF;
+    padding-bottom: 30px;
+
 }
 
 .nav-form {
@@ -44,9 +47,15 @@ $h2color: rgb(37, 15, 73);
 }
 
 .form-body {
+    min-width: 600px;
     margin: 20px auto;
     width: 60%;
 
+}
+
+.form-inner-body {
+    margin-left: 8px;
+    width: 80%;
 }
 
 .form-about-header {
@@ -74,7 +83,10 @@ $h2color: rgb(37, 15, 73);
 
 }
 
-
+select {
+    background-color: white;
+    border-radius: 1px !important;
+}
 
 .form-detail-content {
     display: flex;
@@ -98,7 +110,13 @@ $h2color: rgb(37, 15, 73);
         display: inline;
     }
 
+    .text-desc {
+        height: 220px;
+    }
+
     input[type=text],
+    select.category,
+    select.topic,
     textarea {
         height: 40px;
         outline: none;
@@ -122,8 +140,16 @@ $h2color: rgb(37, 15, 73);
         }
     }
 
+    select.topic {
+        width: 70%;
+    }
+
+    select.size {
+        width: 8%;
+    }
+
     textarea {
-        height: 250px !important;
+        height: 160px !important;
         resize: none;
     }
 
@@ -132,20 +158,21 @@ $h2color: rgb(37, 15, 73);
 
 
 .upload-btn-wrapper {
+    margin-top: 15px;
     position: relative;
     overflow: hidden;
     display: inline-block;
-    
+
 }
 
 .btn {
-    border: 2px solid gray;
-    color: gray;
+    border: 2px solid;
+    color: grey;
     background-color: white;
     padding: 8px 20px;
     border-radius: 8px;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .upload-btn-wrapper input[type=file] {
@@ -154,4 +181,33 @@ $h2color: rgb(37, 15, 73);
     left: 0;
     top: 0;
     opacity: 0;
+}
+
+
+
+.footer-form {
+    padding: 60px 10px;
+    margin: 0 auto;
+
+    h2 {
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 2.25rem;
+        letter-spacing: .5px;
+        margin-right: -.5px;
+        color: $h2color;
+    }
+
+    button {
+        background: linear-gradient(to right, #1D976C, #93F9B9);
+        color: white;
+        height: 44px;
+        letter-spacing: .4px;
+        padding: 0 30px 1px;
+        border: 0;
+        border-radius: 4px;
+        margin-top: 10px;
+        margin-left: 36.77px;
+    }
+
 }

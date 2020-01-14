@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AboutForm  from './formHelper/AboutForm';
+import AboutForm from './formHelper/AboutForm';
 import { DetailsForm } from './formHelper/DetailsForm';
 import { Redirect } from 'react-router-dom';
 
@@ -77,26 +77,38 @@ export default class CourseForm extends Component {
 							<span>1</span>
 							<h2>About Course</h2>
 						</div>
-						<AboutForm
-							state={this.state}
-							handleChange={this.handleChange}
-							handleFile={this.handleFile}
-							handleLocation={this.handleLocation}
-						/>
-
+						<div className='form-inner-body'>
+							<AboutForm
+								state={this.state}
+								handleChange={this.handleChange}
+								handleFile={this.handleFile}
+								handleLocation={this.handleLocation}
+							/>
+						</div>
 						<div className='form-about-header'>
 							<span>2</span>
 							<h2>Course Details</h2>
 						</div>
-						<DetailsForm
-							handleChange={this.handleChange}
-							state={this.state}
-						/>
+						<div className='form-inner-body'>
+							<DetailsForm
+								handleChange={this.handleChange}
+								state={this.state}
+							/>
+						</div>
 					</div>
 				</div>
-				<button onClick={this.handleSubmit}>
-					{this.props.formTypeDown}
-				</button>
+
+				<div className='footer-form'>
+					<div className='inner-footer-form'>
+						<h2>You're almost done.</h2>
+						<button
+							onClick={this.handleSubmit}
+							className='form-footer-button'
+						>
+							Release you course
+						</button>
+					</div>
+				</div>
 			</div>
 		);
 	}

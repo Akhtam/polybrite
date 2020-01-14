@@ -1,53 +1,62 @@
 import React from 'react';
 
-import { produceTopics, produceCategories, produceSize } from './categoryHelper';
+import {
+	produceTopics,
+	produceCategories,
+	produceSize
+} from './categoryHelper';
 
 export const DetailsForm = ({ handleChange, state }) => {
 	const categories = produceCategories();
-    const topics = categories.length ? produceTopics(state.categoryId) : '';
+	const topics = categories.length ? produceTopics(state.categoryId) : '';
 	const size = produceSize();
-	
 
 	return (
 		<div className='form-detail-content'>
 			<label>
-				Course requirements
-				<textarea
+				<span className='required'>Requirements</span>
+				<input
+					type='text'
 					value={state.requirements}
 					onChange={handleChange('requirements')}
 				/>
 			</label>
 			<label>
-				About Instrucor
-				<textarea
+				<span className='required'>About Instrucor</span>
+				<input
+					type='text'
 					value={state.aboutCreator}
 					onChange={handleChange('aboutCreator')}
 				/>
 			</label>
+
 			<label>
-				Course Category
-				<select onChange={handleChange('categoryId')}>
+				<span className='required'>Course Size</span>
+				<select onChange={handleChange('size')} className='size'>
+					<option defaultValue='selected'>{state.size}</option>
+					{size}
+				</select>
+			</label>
+			<label>
+				<span className='required'>Category</span>
+				<select
+					onChange={handleChange('categoryId')}
+					className='category'
+				>
 					<option defaultValue='selected'>Select Category</option>
 					{categories}
 				</select>
 			</label>
-
 			<label>
-				Course Topic
+				<span className='required'>Topic</span>
+
 				<select
+					className='topic'
 					onChange={handleChange('topicId')}
 					value={state.topicId}
 				>
 					<option defaultValue='selected'>Select Topic</option>
 					{topics}
-				</select>
-			</label>
-
-			<label>
-				Course Size
-				<select onChange={handleChange('size')}>
-					<option defaultValue='selected'>{state.size}</option>
-					{size}
 				</select>
 			</label>
 		</div>
