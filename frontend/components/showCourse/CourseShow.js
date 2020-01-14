@@ -30,7 +30,7 @@ export default class ShowCourse extends Component {
 				<h1>{title}</h1>
 				<img  src={photoUrl}/>
 
-				{this.props.currUserId === creatorId ? <button onClick={this.handleEdit.bind(this)}>Edit</button> : ''}
+				{/* {this.props.currUserId === creatorId ? <button onClick={this.handleEdit.bind(this)}>Edit</button> : ''} */}
 			</div>
 		);
 	}
