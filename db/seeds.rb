@@ -10,6 +10,7 @@
 User.delete_all
 Category.delete_all
 Topic.delete_all
+Course.delete_all
 
 # stime = DateTime.new(2020,1,4,5,00,00)
 # etime = DateTime.new(2020,3,1,8,00,00)
