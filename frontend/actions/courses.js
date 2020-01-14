@@ -30,6 +30,8 @@ export const createCourse = formCourse => dispatch => {
 		.then(res => dispatch(receiveCourse(res.course)));
 };
 
-export const updateCourse = course => {
-	
-}
+export const updateCourse = course => dispatch => {
+	return courseApiUtil
+		.updateCourse(course)
+		.then(res => dispatch(receiveCourse(res.course)));
+};

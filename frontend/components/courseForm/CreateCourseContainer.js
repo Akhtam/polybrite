@@ -19,7 +19,8 @@ const mstp = state => ({
 		categoryId: 'Select Category',
 		topicId: ''
 	},
-	formTypeTop: 'Enlighten'
+	formTypeTop: 'Enlighten',
+	formTypeDown: 'Make Your Course Live'
 });
 
 const mdtp = dispatch => ({

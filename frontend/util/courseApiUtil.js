@@ -15,6 +15,15 @@ export const createCourse = course => {
 		processData: false
 	});
 };
+export const updateCourse = course => {
+	return $.ajax({
+		url: `/api/courses/${course.id}`,
+		method: 'PATCH',
+		data: course,
+		contentType: false,
+		processData: false
+	});
+};
 
 export const fetchCourse = courseId => {
 	return axios.get(`/api/courses/${courseId}`);

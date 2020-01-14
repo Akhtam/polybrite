@@ -1,50 +1,53 @@
 import React from 'react';
 
-export const AboutForm = ({handleFile, handleChange, state, handleLocation }) => {
+export const AboutForm = ({
+	handleFile,
+	handleChange,
+	state,
+	handleLocation
+}) => {
+	console.log(state);
 	return (
 		<div className='form-about-content'>
 			<div className='form-detail-content'>
 				<label>
-					Title:
+					<span className='required'>Title</span>
 					<input
 						type='text'
 						value={state.title}
 						onChange={handleChange('title')}
 					/>
 				</label>
-				<br />
+
 				<label>
-					City:
+					<span className='required'>Adress</span>
 					<input
 						type='text'
 						value={state.location.city}
 						onChange={handleLocation('city')}
 					/>
 				</label>
-				<br />
+
 				<label>
-					Venue:
+					<span className='required'>Venue</span>
 					<input
 						type='text'
 						value={state.location.venue}
 						onChange={handleLocation('venue')}
 					/>
 				</label>
-				<br />
+				<div className='upload-btn-wrapper'>
+					<button className='btn'>Upload a file</button>
+					<input type='file' name='myfile' onChange={handleFile} />
+					<span>{state.photoFile ? state.photoFile.name : ''}</span>
+				</div>
+
 				<label>
-					Course description:
+					<span className='required'>Course description</span>
 					<textarea
 						type='text'
 						onChange={handleChange('description')}
 						value={state.description}
-					/>
-				</label>
-				<br />
-				<label>
-					Add Photo:
-					<input
-						onChange={handleFile}
-						type='file'
 					/>
 				</label>
 			</div>

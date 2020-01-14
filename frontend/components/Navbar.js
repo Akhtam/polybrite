@@ -44,7 +44,7 @@ class Navbar extends Component {
 					<div className='nav-li'>
 						<li>
 							{this.props.currentUser ? (
-								this.props.currentUser.firstName
+								<span>{this.props.currentUser.firstName}</span>
 							) : (
 								<NavLink to='/login'>Login</NavLink>
 							)}

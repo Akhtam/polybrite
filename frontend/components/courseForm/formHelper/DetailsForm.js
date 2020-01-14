@@ -9,34 +9,31 @@ export const DetailsForm = ({ handleChange, state }) => {
 	
 
 	return (
-		<div>
+		<div className='form-detail-content'>
 			<label>
-				Course requirements:
+				Course requirements
 				<textarea
 					value={state.requirements}
 					onChange={handleChange('requirements')}
 				/>
 			</label>
-			<br />
 			<label>
-				About Instrucor:
+				About Instrucor
 				<textarea
 					value={state.aboutCreator}
 					onChange={handleChange('aboutCreator')}
 				/>
 			</label>
-			<br />
 			<label>
-				Course Category:
+				Course Category
 				<select onChange={handleChange('categoryId')}>
 					<option defaultValue='selected'>Select Category</option>
 					{categories}
 				</select>
 			</label>
-			<br />
 
 			<label>
-				Course Topic:
+				Course Topic
 				<select
 					onChange={handleChange('topicId')}
 					value={state.topicId}
@@ -45,10 +42,9 @@ export const DetailsForm = ({ handleChange, state }) => {
 					{topics}
 				</select>
 			</label>
-			<br />
 
 			<label>
-				Course Size:
+				Course Size
 				<select onChange={handleChange('size')}>
 					<option defaultValue='selected'>{state.size}</option>
 					{size}

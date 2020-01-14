@@ -51,7 +51,7 @@ export default class CourseForm extends Component {
 		formData.append('course[aboutCreator]', this.state.aboutCreator);
 		formData.append('course[categoryId]', this.state.categoryId);
 		formData.append('course[topicId]', this.state.topicId);
-
+		
 		this.props
 			.action(formData)
 			.then(res => this.props.history.push(`${res.course.id}`));
@@ -71,28 +71,32 @@ export default class CourseForm extends Component {
 					</button>
 				</div>
 				<div className='border-nav-form'></div>
-				<div className='form-body'>
-					<div className='form-about-header'>
-						<h1>About Course</h1>
-					</div>
-					<AboutForm
-						state={this.state}
-						handleChange={this.handleChange}
-						handleFile={this.handleFile}
-						handleLocation={this.handleLocation}
-					/>
+				<div className='form-body-back'>
+					<div className='form-body'>
+						<div className='form-about-header'>
+							<span>1</span>
+							<h2>About Course</h2>
+						</div>
+						<AboutForm
+							state={this.state}
+							handleChange={this.handleChange}
+							handleFile={this.handleFile}
+							handleLocation={this.handleLocation}
+						/>
 
-					<div className='form-details-header'>
-						<h1>Course Details</h1>
-					</div>
-					<div className='form-details-content'>
+						<div className='form-about-header'>
+							<span>2</span>
+							<h2>Course Details</h2>
+						</div>
 						<DetailsForm
 							handleChange={this.handleChange}
 							state={this.state}
 						/>
 					</div>
 				</div>
-				<button onClick={this.handleSubmit}>Publish</button>
+				<button onClick={this.handleSubmit}>
+					{this.props.formTypeDown}
+				</button>
 			</div>
 		);
 	}
