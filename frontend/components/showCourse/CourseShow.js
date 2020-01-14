@@ -24,13 +24,17 @@ export default class ShowCourse extends Component {
 			photoUrl,
 			creatorId
 		} = this.props.course ? this.props.course : {};
-
+		// console.log(this.props)
 		return (
 			<div>
 				<h1>{title}</h1>
-				<img  src={photoUrl}/>
-
-				{/* {this.props.currUserId === creatorId ? <button onClick={this.handleEdit.bind(this)}>Edit</button> : ''} */}
+				<img src={photoUrl} />
+				{this.props.currUserId &&
+				this.props.currUserId === creatorId ? (
+					<button onClick={this.handleEdit.bind(this)}>Edit</button>
+				) : (
+					''
+				)}
 			</div>
 		);
 	}

@@ -16,8 +16,9 @@ export const createCourse = course => {
 	});
 };
 export const updateCourse = course => {
+
 	return $.ajax({
-		url: `/api/courses/${course.id}`,
+		url: `/api/courses/${course.get('course[courseId]')}`,
 		method: 'PATCH',
 		data: course,
 		contentType: false,
