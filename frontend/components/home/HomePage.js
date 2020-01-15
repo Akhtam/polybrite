@@ -8,9 +8,9 @@ const mdtp = dispatch => ({
 });
 
 class HomePage extends Component {
-	// componentDidMount() {
-	// 	this.props.fetchCourses();
-	// }
+	componentDidMount() {
+		this.props.fetchCourses();
+	}
 	render() {
 		return (
 			<div>
