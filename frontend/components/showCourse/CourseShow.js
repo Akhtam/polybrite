@@ -24,7 +24,6 @@ export default class ShowCourse extends Component {
 			photoUrl,
 			creatorId
 		} = this.props.course ? this.props.course : {};
-		// console.log(this.props)
 		return (
 			<div>
 				<h1>{title}</h1>

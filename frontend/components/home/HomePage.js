@@ -9,7 +9,7 @@ const mdtp = dispatch => ({
 
 class HomePage extends Component {
 	componentDidMount() {
-		this.props.fetchCourses()
+		this.props.fetchCourses();
 	}
 	render() {
 		return (
@@ -20,4 +20,4 @@ class HomePage extends Component {
 	}
 }
 
-export default connect(null, mdtp)(HomePage)
+export default connect(null, mdtp)(HomePage);
