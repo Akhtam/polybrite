@@ -1,8 +1,8 @@
 import React from 'react';
 
 const categories = {
-	Music: ['Guitar', 'Piano', 'Violin', 'Flutes'],
-	Tech: ['Javascript', 'Ruby', 'Redux', 'D3'],
+	Music: ['Guitar', 'Piano', 'Violin', 'flute'],
+	Tech: ['Javascript', 'Ruby', 'redux', 'D3'],
 	Science: ['Astrobiology', 'Cosmology', 'Galaxies', 'Nebulae'],
 	Dance: ['Salsa', 'Tango', 'Ballet', 'Whatever'],
 	Art: ['Painting', 'Canvas', 'Photography', 'Sculpture']
