@@ -15,9 +15,8 @@ class HomePage extends Component {
 		return (
 			<div>
 				<Header />
-				<div className='below-header'>
-
-
+				<div className='home-page-content'>
+					
 				</div>
 			</div>
 		);
