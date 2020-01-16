@@ -27,6 +27,7 @@ class CourseForm extends Component {
 			});
 		};
 	}
+	
 
 	handleFile(e) {
 		e.preventDefault();
