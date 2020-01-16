@@ -25,6 +25,7 @@ class CourseForm extends Component {
 			this.setState({
 				[inputType]: e.target.value
 			});
+			
 		};
 	}
 	
@@ -41,14 +42,20 @@ class CourseForm extends Component {
 		let loc = {
 			location: JSON.stringify(this.state.location)
 		};
+		const startDate = new Date(
+			`${this.state.startDate} ${this.state.startTime}`
+		);
+		const endDate = new Date(
+			`${this.state.endDate} ${this.state.endTime}`
+		);
 		const formData = new FormData();
 		formData.append('course[title]', this.state.title);
 		formData.append('course[description]', this.state.description);
 		formData.append('course[location]', loc.location);
 		formData.append('course[requirements]', this.state.requirements);
 		formData.append('course[photo]', this.state.photoFile);
-		formData.append('course[start_date]', this.state.startDate);
-		formData.append('course[end_date]', this.state.endDate);
+		formData.append('course[start_date]', startDate);
+		formData.append('course[end_date]', endDate);
 		formData.append('course[size]', this.state.size);
 		formData.append('course[about_creator]', this.state.aboutCreator);
 		formData.append('course[category_id]', this.state.categoryId);
@@ -56,7 +63,6 @@ class CourseForm extends Component {
 		if (this.state.courseId) {
 			formData.append('course[course_id]', this.state.courseId);
 		}
-
 		this.props
 			.action(formData)
 			.then(res => this.props.history.push(`/courses/${res.course.id}`)); 

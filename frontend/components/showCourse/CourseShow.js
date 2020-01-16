@@ -29,8 +29,6 @@ export default class ShowCourse extends Component {
 			.slice(0, 3);
 		const loctime = new Date(startDate).toLocaleTimeString().split(' ');
 		const time = loctime[0].slice(0, 4) + loctime[1];
-		console.log(dayMonth);
-
 		return (
 			<div>
 				<header className='show-header'>

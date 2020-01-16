@@ -31,18 +31,35 @@ export const DetailsForm = ({ handleChange, state }) => {
 			</label>
 
 			<label>
-				<span className='required'>Start Date And Time</span>
-				<div className='start-date'>
-					<input
-						type='date'
-						value={state.startDate}
-						onChange={handleChange('startDate')}
-					/>
-					<input
-						type='time'
-						value={state.starTime}
-						onChange={handleChange('startTime')}
-					/>
+				<div className='course-form-date'>
+					<div className='course-date-childs'>
+						<span className='required'>Starts</span>
+						<input
+							type='date'
+							value={state.startDate}
+							onChange={handleChange('startDate')}
+						/>
+						<input
+							type='time'
+							value={state.startTime}
+							onChange={handleChange('startTime')}
+						/>
+					</div>
+
+					<div className='course-date-childs form-end-date'>
+						<span className='required'>Ends</span>
+
+						<input
+							type='date'
+							value={state.endDate}
+							onChange={handleChange('endDate')}
+						/>
+						<input
+							type='time'
+							value={state.endTime}
+							onChange={handleChange('endTime')}
+						/>
+					</div>
 				</div>
 			</label>
 

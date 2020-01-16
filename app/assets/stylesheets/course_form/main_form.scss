@@ -211,3 +211,22 @@ select {
     }
 
 }
+
+
+.course-form-date {
+    display: flex;
+    .course-date-childs {
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+        input {
+            height: 35px;
+        }
+        input[type=time] {
+            margin-top: 10px;
+        }
+    }
+    .form-end-date {
+        margin-left: 10%;
+    }
+}

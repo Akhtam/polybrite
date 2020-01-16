@@ -21,7 +21,7 @@ const CourseIndexItem = ({ course, history }) => {
 						/>
 					</aside>
 					<main>
-						<div className='start-date'>
+						<div className='start-date-show'>
 							{[...dayMonth, time].join(' ')}
 						</div>
 						<div className='course-title'>
