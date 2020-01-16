@@ -1,9 +1,11 @@
-import { $CombinedState } from 'redux';
 
 const axios = require('axios');
 
-export const fetchCourses = () => {
-	return axios.get('/api/courses');
+export const fetchCourses = (category) => {
+	return $.ajax({
+		url: `/api/courses?category=${category}`,
+		method: 'GET'
+	});
 };
 
 export const createCourse = course => {

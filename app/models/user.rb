@@ -28,7 +28,8 @@ class User < ApplicationRecord
 
 
   has_many :courses,
-    foreign_key: :creator_id
+    foreign_key: :creator_id,
+    dependent: :destroy
   
 
   def self.find_by_credentials(email,password)

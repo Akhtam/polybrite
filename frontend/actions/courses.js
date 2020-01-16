@@ -13,10 +13,10 @@ const receiveCourse = course => ({
 	course
 });
 
-export const fetchCourses = () => dispatch => {
+export const fetchCourses = category => dispatch => {
 	return courseApiUtil
-		.fetchCourses()
-		.then(res => dispatch(receiveCourses(res.data)));
+		.fetchCourses(category)
+		.then(res => dispatch(receiveCourses(res)));
 };
 export const fetchCourse = courseId => dispatch => {
 	return courseApiUtil
