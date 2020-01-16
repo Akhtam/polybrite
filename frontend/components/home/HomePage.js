@@ -9,7 +9,7 @@ class HomePage extends Component {
 				<Header />
 				<hr />
 				<CourseIndex />
-				<footer></footer>
+				<footer className='footer'></footer>
 			</div>
 		);
 	}
