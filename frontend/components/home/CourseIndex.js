@@ -18,7 +18,6 @@ class CourseIndex extends Component {
 			courses: []
 		};
 		this.handleCategory = this.handleCategory.bind(this);
-		// this.handleRedirect = this.handleRedirect.bind(this);
 	}
 	componentDidMount() {
 		this.props
