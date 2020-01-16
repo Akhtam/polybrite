@@ -31,6 +31,22 @@ export const DetailsForm = ({ handleChange, state }) => {
 			</label>
 
 			<label>
+				<span className='required'>Start Date And Time</span>
+				<div className='start-date'>
+					<input
+						type='date'
+						value={state.startDate}
+						onChange={handleChange('startDate')}
+					/>
+					<input
+						type='time'
+						value={state.starTime}
+						onChange={handleChange('startTime')}
+					/>
+				</div>
+			</label>
+
+			<label>
 				<span className='required'>Course Size</span>
 				<select onChange={handleChange('size')} className='size'>
 					<option defaultValue='selected'>{state.size}</option>

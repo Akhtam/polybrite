@@ -7,8 +7,8 @@ class SignupForm extends Component {
 		super(props);
 		this.state = {
 			email: '',
-			firstName: '',
-			lastName: '',
+			first_name: '',
+			last_name: '',
 			password: ''
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -66,7 +66,7 @@ class SignupForm extends Component {
 										className='fname'
 										type='text'
 										value={this.state.first_name}
-										onChange={this.updateInput('firstName')}
+										onChange={this.updateInput('first_name')}
 									/>
 								</div>
 								<div className='textbox'>
@@ -75,7 +75,7 @@ class SignupForm extends Component {
 										className='lname'
 										type='text'
 										value={this.state.last_name}
-										onChange={this.updateInput('lastName')}
+										onChange={this.updateInput('last_name')}
 									/>
 								</div>
 							</div>
