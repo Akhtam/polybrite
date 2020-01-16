@@ -1,15 +1,10 @@
 class Api::CoursesController < ApplicationController
     def index
-<<<<<<< HEAD
-        
-        @courses = Course.all
-=======
         if params[:category] == 'All'
             @courses = Course.all
         else
             @courses = Category.find_by(name: params[:category]).courses 
         end
->>>>>>> dev
         render :index
 
     end

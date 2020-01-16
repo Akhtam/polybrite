@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 
 const axios = require('axios');
 
 export const fetchCourses = (category) => {
-<<<<<<< HEAD
-	return axios.get('/api/courses', {
-		data: {category}
-=======
 	return $.ajax({
 		url: `/api/courses?category=${category}`,
 		method: 'GET'
->>>>>>> dev
 	});
 };
 
