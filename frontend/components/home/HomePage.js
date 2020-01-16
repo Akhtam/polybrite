@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchCourses } from '../../actions/courses';
 import Header from './Header';
-
-const mdtp = dispatch => ({
-	fetchCourses: () => dispatch(fetchCourses())
-});
+import CourseIndex from './CourseIndex';
 
 class HomePage extends Component {
+<<<<<<< HEAD
 	componentDidMount() {
 		this.props.fetchCourses();
 	}
+=======
+>>>>>>> dev
 	render() {
 		return (
 			<div>
 				<Header />
+<<<<<<< HEAD
 				<div className='home-page-content'>
 					
 				</div>
+=======
+				<hr />
+				<CourseIndex />
+>>>>>>> dev
 			</div>
 		);
 	}
 }
 
+<<<<<<< HEAD
 export default connect(null, mdtp)(HomePage);
+=======
+export default HomePage;
+>>>>>>> dev

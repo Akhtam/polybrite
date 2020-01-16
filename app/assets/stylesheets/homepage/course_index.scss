@@ -1,0 +1,46 @@
+.course-index {
+    max-width: 1220px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.category-nav {
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+
+    .category-button {
+        padding: 12px 10px;
+
+        button {
+            color: #6f7287;
+            background: none;
+            border: none;
+            text-align: left;
+            padding-bottom: 4px;
+
+            &:hover {
+                border-bottom: #1D976C solid 2px;
+                color: #393c5f;
+            }
+        }
+
+        .active-category {
+            border-bottom: #1D976C solid 2px;
+            color: #393c5f;
+
+        }
+    }
+}
+
+.course-feed {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}

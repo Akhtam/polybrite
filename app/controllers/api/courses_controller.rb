@@ -1,8 +1,17 @@
 class Api::CoursesController < ApplicationController
     def index
+<<<<<<< HEAD
         
         @courses = Course.all
+=======
+        if params[:category] == 'All'
+            @courses = Course.all
+        else
+            @courses = Category.find_by(name: params[:category]).courses 
+        end
+>>>>>>> dev
         render :index
+
     end
 
     def show
@@ -29,6 +38,7 @@ class Api::CoursesController < ApplicationController
        
     end
     private 
+
     def course_params
         params.require(:course).permit(
             :title,
