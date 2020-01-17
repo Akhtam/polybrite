@@ -1,10 +1,19 @@
+hr.show-hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+
 .show-header {
     height: 66vh;
     max-height: inherit;
     min-height: 500px;
     overflow: hidden;
     position: absolute;
-    top: 43px;
+    top: 45px;
     width: 100%;
     z-index: -1;
 
@@ -21,14 +30,14 @@
 }
 
 .show-content {
-    border: 1px solid black;
+    box-shadow: 3px 3px 14px -5px rgba(0, 0, 0, 0.75);
     width: 100%;
-    height: 1000px;
     max-width: 1080px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
     margin-bottom: 50px;
+    padding-bottom: 80px;
 }
 
 .show-top-content {
@@ -65,14 +74,15 @@
             line-height: 15px;
             letter-spacing: .5px;
             text-transform: uppercase;
+            color: #d1410c;
         }
     }
 
     .main-info-title {
         padding-top: 64px;
+        margin-left: 10%;
 
         h1 {
-            margin-left: 10%;
             overflow: hidden;
             text-overflow: ellipsis;
             color: #1E0A3C;
@@ -81,6 +91,181 @@
             line-height: 21px;
             letter-spacing: .5px;
             word-break: break-word;
+            margin-bottom: 14px;
+        }
+
+        span {
+            color: #6F7287;
+        }
+    }
+
+    .main-info-price {
+        position: absolute;
+        bottom: 25px;
+        padding: 5px 20px;
+        left: 30px;
+        color: #3659E3;
+        border: 1px solid;
+        border-radius: 3px;
+    }
+}
+
+
+.show-button {
+    display: flex;
+    justify-content: flex-end;
+    height: 66px;
+    background-color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    // border-top: .4px solid #a2a2a2e0;
+    border-bottom: .4px solid #a2a2a2e0;
+
+    .show-button-container {
+        width: 30%;
+        margin-right: 2%;
+
+        button {
+            padding-left: 30px;
+            padding-right: 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            font-weight: 500;
+            color: #FFF;
+            background: #089FBA;
+            height: 44px;
+            border: 2px solid transparent;
+            padding: 0 30px;
+            box-sizing: border-box;
+            text-align: center;
+            text-decoration: none;
+            line-height: 26px;
+            font-size: 15px;
+            border-radius: 4px;
+
+            &:hover {
+                animation: .4s;
+                background: #00B7BB;
+            }
+        }
+    }
+
+}
+
+.main-description {
+    position: relative;
+    background-color: white;
+    padding: 50px;
+
+    hr {
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+}
+
+.mm-description {
+    display: flex;
+    width: 91.6666666667%;
+
+
+    .description {
+        width: 57.3333333333%;
+        margin-left: 8.3333333333%;
+
+        h1 {
+            font-size: 1.4rem;
+            padding-bottom: 5px;
+        }
+
+        .desc-content {
+            font-size: 1.1rem;
+            line-height: 1.4rem;
+            font-weight: 400;
+            letter-spacing: .23px;
+        }
+    }
+
+}
+
+.date-loc-content {
+    margin-left: 15%;
+    width: 33%;
+
+    h3 {
+        color: #1E0A3C;
+        line-height: 1.4rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+
+    .day-time,
+    .location {
+        color: #39364f;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+}
+
+
+.show-more-info {
+    text-align: center;
+
+    .ar-header {
+        padding: 15px;
+        color: #1E0A3C;
+        line-height: 1.4rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+
+    .ar-content {
+        margin: 0 auto;
+        font-size: 17px;
+        line-height: 1.5rem;
+        max-width: 60%;
+
+    }
+
+    hr {
+        margin: 40px auto;
+        max-width: 70%;
+    }
+}
+
+
+
+.edit-delete {
+    display: flex;
+    justify-content: center;
+    border: none;
+
+    .delete {
+        button {
+            background-color: #D72020;
+            max-width: 240px;
+
+            &:hover {
+                background-color: rgb(240, 53, 53);
+
+            }
+
+        }
+    }
+
+    .edit {
+        button {
+            background-color: #354D77;
+            max-width: 240px;
+
+            &:hover {
+                background-color: rgb(56, 94, 160);
+
+            }
         }
     }
 }
