@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login, clearErrors } from '../../actions/session';
-import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 class LoginForm extends Component {
 	constructor(props) {
@@ -51,6 +52,13 @@ class LoginForm extends Component {
 			<div className='container'>
 				<div className='login-box'>
 					<div className='top-box'>
+						<div className='login-icon'>
+							<FontAwesomeIcon
+								color='#DFE0DF'
+								size='6x'
+								icon={faAddressCard}
+							/>
+						</div>
 						<div className='title'>
 							<h2>Welcome</h2>
 						</div>

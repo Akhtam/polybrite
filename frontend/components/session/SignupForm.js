@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createNewUser, clearErrors } from '../../actions/session';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 class SignupForm extends Component {
 	constructor(props) {
@@ -45,6 +47,13 @@ class SignupForm extends Component {
 			<div className='container'>
 				<div className='login-box'>
 					<div className='top-box'>
+						<div className='login-icon'>
+							<FontAwesomeIcon
+								color='#DFE0DF'
+								size='6x'
+								icon={faUserPlus}
+							/>
+						</div>
 						<form onSubmit={this.handleSubmit}>
 							<div className='title'>
 								<h2>Welcome</h2>
@@ -66,7 +75,9 @@ class SignupForm extends Component {
 										className='fname'
 										type='text'
 										value={this.state.first_name}
-										onChange={this.updateInput('first_name')}
+										onChange={this.updateInput(
+											'first_name'
+										)}
 									/>
 								</div>
 								<div className='textbox'>
