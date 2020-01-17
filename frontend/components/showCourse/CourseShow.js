@@ -6,16 +6,16 @@ export default class ShowCourse extends Component {
 		this.state = {
 			location: {}
 		};
+		this.handleEdit = this.handleEdit.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
 	}
 	componentDidMount() {
 		this.props.fetchCourse(this.props.match.params.courseId).then(res => {
-			this.setState(
-				{
-					location: JSON.parse(res.course.location)
-				},
-				() => console.log(this.state)
-			);
-		});
+			this.setState({
+				location: JSON.parse(res.course.location)
+			});
+		}).catch(err => console.log(err.message))
+
 	}
 
 	handleEdit(e) {
@@ -23,7 +23,18 @@ export default class ShowCourse extends Component {
 		this.props.history.push(`/courses/${this.props.course.id}/edit`);
 	}
 
+	handleDelete(e) {
+		e.preventDefault();
+		this.props
+			.deleteCourse(this.props.course.id)
+			.then(res => {
+				debugger
+				this.props.history.push(`/`)
+			});
+	}
+
 	render() {
+		const { currUserId } = this.props;
 		const {
 			title,
 			description,
@@ -107,15 +118,18 @@ export default class ShowCourse extends Component {
 						<div className='ar-content'>{aboutCreator}</div>
 						<hr className='show-hr' />
 					</div>
-
-					<div className='show-button edit-delete'>
-						<div className='show-button-container delete'>
-							<button>Delete</button>
+					{currUserId && currUserId === creatorId ? (
+						<div className='show-button edit-delete'>
+							<div className='show-button-container delete'>
+								<button onClick={this.handleDelete}>Delete</button>
+							</div>
+							<div className='show-button-container edit'>
+								<button onClick={this.handleEdit}>Edit</button>
+							</div>
 						</div>
-						<div className='show-button-container edit'>
-							<button>Edit</button>
-						</div>
-					</div>
+					) : (
+						''
+					)}
 				</div>
 			</div>
 		);

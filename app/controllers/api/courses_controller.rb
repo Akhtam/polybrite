@@ -32,6 +32,16 @@ class Api::CoursesController < ApplicationController
         end
        
     end
+
+
+    def destroy
+        @course = Course.find(params[:id])
+        if @course.destroy
+            render json: {message: 'success'}
+        else
+            render json: @course.erorrs.full_messages, status: 422
+        end
+    end
     private 
 
     def course_params

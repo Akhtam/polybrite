@@ -2,6 +2,7 @@ import * as courseApiUtil from '../util/courseApiUtil';
 
 export const RECEIVE_COURSES = 'RECEIVE_COURSES';
 export const RECEIVE_COURSE = 'RECEIVE_COURSE';
+export const REMOVE_COURSE = 'REMOVE_COURSE';
 
 const receiveCourses = courses => ({
 	type: RECEIVE_COURSES,
@@ -12,6 +13,13 @@ const receiveCourse = course => ({
 	type: RECEIVE_COURSE,
 	course
 });
+
+const removeCourse = courseId => ({
+	type: REMOVE_COURSE,
+	courseId
+})
+
+
 
 export const fetchCourses = category => dispatch => {
 	return courseApiUtil
@@ -35,3 +43,7 @@ export const updateCourse = course => dispatch => {
 		.updateCourse(course)
 		.then(res => dispatch(receiveCourse(res.course)));
 };
+
+export const deleteCourse = courseId => dispatch => {
+	return courseApiUtil.deleteCourse(courseId).then(() => dispatch(removeCourse(courseId)))
+}

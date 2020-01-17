@@ -28,6 +28,14 @@ export const updateCourse = course => {
 	});
 };
 
+
 export const fetchCourse = courseId => {
 	return axios.get(`/api/courses/${courseId}`);
 };
+
+export const deleteCourse = courseId => {
+	return $.ajax({
+		url: `/api/courses/${courseId}`,
+		method: 'DELETE'
+	});
+}

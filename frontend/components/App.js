@@ -4,16 +4,17 @@ import Navbar from './Navbar';
 import SignupForm from './session/SignupForm';
 import LoginForm from './session/LoginForm';
 import CreateCourseContainer from './courseForm/CreateCourseContainer';
-import EditCourseContainer from './courseForm/EditCourseContainer'
+import EditCourseContainer from './courseForm/EditCourseContainer';
 import { AuthRoute, ProtectedRoute } from '../util/RouteUtils';
 import HomePage from './home/HomePage';
-import CourseShowContainer from './showCourse/CourseShowContainer'
+import CourseShowContainer from './showCourse/CourseShowContainer';
 
 export default class App extends Component {
 	render() {
 		return (
 			<div>
 				<Navbar />
+
 				<Switch>
 					<AuthRoute path='/signup' component={SignupForm} />
 					<AuthRoute path='/login' component={LoginForm} />
@@ -28,6 +29,7 @@ export default class App extends Component {
 						component={EditCourseContainer}
 					/>
 					<Route
+						exact
 						path='/courses/:courseId'
 						component={CourseShowContainer}
 					/>

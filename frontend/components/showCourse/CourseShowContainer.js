@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CourseShow from './CourseShow';
-import { fetchCourse } from '../../actions/courses';
+import { fetchCourse, deleteCourse } from '../../actions/courses';
 
 const mstp = (state, ownProps) => {
 	const currUserId = state.session.currentUser
@@ -13,7 +13,8 @@ const mstp = (state, ownProps) => {
 };
 
 const mdtp = dispatch => ({
-	fetchCourse: courseId => dispatch(fetchCourse(courseId))
+	fetchCourse: courseId => dispatch(fetchCourse(courseId)),
+	deleteCourse: courseId => dispatch(deleteCourse(courseId))
 });
 
 export default connect(mstp, mdtp)(CourseShow);

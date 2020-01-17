@@ -116,7 +116,7 @@ class CourseForm extends Component {
 							onClick={this.handleSubmit}
 							className='form-footer-button'
 						>
-							Release you course
+							{this.props.formTypeDown}
 						</button>
 					</div>
 				</div>
