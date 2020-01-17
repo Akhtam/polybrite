@@ -34,6 +34,7 @@ export default class App extends Component {
 						component={CourseShowContainer}
 					/>
 				</Switch>
+				<footer className='footer' />
 			</div>
 		);
 	}

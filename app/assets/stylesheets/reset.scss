@@ -108,6 +108,9 @@ section {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     min-height: 100%;
     line-height: 1;
 }
@@ -197,6 +200,7 @@ audio:not([controls]) {
  */
 
 html {
+    height: 100%;
     font-size: 100%;
     /* 1 */
     -webkit-text-size-adjust: 100%;
@@ -464,4 +468,13 @@ textarea {
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+}
+
+.footer {
+    flex-shrink: 0;
+    /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+    // padding: 20px;
+    margin-top: 30px;
+    height: 70px;
+    background-color: rgb(46, 7, 59);
 }
