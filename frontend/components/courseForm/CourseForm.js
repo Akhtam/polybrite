@@ -25,10 +25,8 @@ class CourseForm extends Component {
 			this.setState({
 				[inputType]: e.target.value
 			});
-			
 		};
 	}
-	
 
 	handleFile(e) {
 		e.preventDefault();
@@ -45,9 +43,7 @@ class CourseForm extends Component {
 		const startDate = new Date(
 			`${this.state.startDate} ${this.state.startTime}`
 		);
-		const endDate = new Date(
-			`${this.state.endDate} ${this.state.endTime}`
-		);
+		const endDate = new Date(`${this.state.endDate} ${this.state.endTime}`);
 		const formData = new FormData();
 		formData.append('course[title]', this.state.title);
 		formData.append('course[description]', this.state.description);
@@ -65,7 +61,7 @@ class CourseForm extends Component {
 		}
 		this.props
 			.action(formData)
-			.then(res => this.props.history.push(`/courses/${res.course.id}`)); 
+			.then(res => this.props.history.push(`/courses/${res.course.id}`));
 	}
 
 	render() {
@@ -77,7 +73,10 @@ class CourseForm extends Component {
 			<div className='main-form-content'>
 				<div className='nav-form'>
 					<h2>{isCreate}</h2>
-					<button className='form-header-button'>
+					<button
+						onClick={this.handleSubmit}
+						className='form-header-button'
+					>
 						{this.props.formTypeTop}
 					</button>
 				</div>
