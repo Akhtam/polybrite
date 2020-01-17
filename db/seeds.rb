@@ -24,6 +24,8 @@ u4 = User.create!(email: 'lolo@gmail.com', first_name: 'Yosho', last_name: 'None
 music = Category.create!(name: 'Music')
 science = Category.create!(name: 'Science')
 tech = Category.create!(name: 'Tech')
+dance = Category.create!(name: 'Dance')
+art = Category.create!(name: 'Art')
 
 #TOPICS
 # Music-Category
@@ -41,6 +43,17 @@ javascript = Topic.create!(name: 'Javascript')
 ruby = Topic.create!(name: 'Ruby')
 redux = Topic.create!(name: 'redux')
 d3 = Topic.create!(name: 'D3')
+#dance
+salsa = Topic.create!(name: 'Salsa')
+tango = Topic.create!(name: 'Tango')
+ballet = Topic.create!(name: 'Ballet')
+whatever = Topic.create!(name: 'Whatever')
+#art
+painting = Topic.create!(name: 'Painting')
+canvas = Topic.create!(name: 'Canvas')
+photography = Topic.create!(name: 'Photography')
+cculpture = Topic.create!(name: 'Sculpture')
+
 
 
 # s1 = Course.create!(
