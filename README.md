@@ -1,4 +1,4 @@
-# POLYBRITE
+### POLYBRITE
 
 [ Live Demo ](https://polybrite.herokuapp.com/#/)
 
