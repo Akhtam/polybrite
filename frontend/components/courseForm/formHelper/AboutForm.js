@@ -14,7 +14,7 @@ const AboutForm = ({ handleFile, handleChange, state, handleLocation }) => {
 				</label>
 
 				<label>
-					<span className='required'>Adress</span>
+					<span className='required'>Address</span>
 					<input
 						type='text'
 						value={state.location.city}

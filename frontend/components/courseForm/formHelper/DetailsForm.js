@@ -22,7 +22,7 @@ export const DetailsForm = ({ handleChange, state }) => {
 				/>
 			</label>
 			<label>
-				<span className='required'>About Instrucor</span>
+				<span className='required'>About Instructor</span>
 				<input
 					type='text'
 					value={state.aboutCreator}
