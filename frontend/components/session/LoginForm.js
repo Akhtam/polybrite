@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
 import { login, clearErrors } from '../../actions/session';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
@@ -89,19 +91,24 @@ class LoginForm extends Component {
 									value='Login'
 								/>
 							</div>
-							<div className='or'> or </div>
 							<div>
 								<input
 									type='button'
 									className='demo-button button'
 									onClick={this.handleDemoUser}
-									value='Demo'
+									value='Demo Login'
 								/>
 							</div>
-							<div className={errs.length ? 'errors' : ''}>
-								<ul>{errs}</ul>
+							<div className='or'> or </div>
+							<div className='redirect-session'>
+								<span>Don't have Polybrite account?</span>
+
+								<NavLink to='/signup'>Signup</NavLink>
 							</div>
 						</form>
+						<div className={errs.length ? 'errors' : ''}>
+							<ul>{errs}</ul>
+						</div>
 					</div>
 				</div>
 			</div>
