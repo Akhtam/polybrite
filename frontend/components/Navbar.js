@@ -2,55 +2,60 @@ import React, { Component } from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import { logout } from '../actions/session';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
+import { Dropdown } from './Dropdown';
 
 class Navbar extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			open: false
+		};
 		this.handleLogout = this.handleLogout.bind(this);
+		this.toggleDropDown = this.toggleDropDown.bind(this);
 	}
 
+	toggleDropDown(e) {
+		this.setState({ open: !this.state.open });
+	}
 	handleLogout(e) {
 		e.preventDefault();
+		this.setState({ open: false });
 		this.props.logoutUser();
 		<Redirect to='/' />;
 	}
 	render() {
+		console.log(this.props)
 		return (
 			<nav>
 				<NavLink to='/' className='logo'>
 					<h2>polybrite</h2>
 				</NavLink>
-				<ul className='nav-links'>
+				<div className='nav-links'>
 					<div className='nav-li'>
-						<li>
-							<NavLink to='/courses/new'>Create Course</NavLink>
-						</li>
+						<NavLink to='/courses/new'>Create Course</NavLink>
 					</div>
+
 					<div className='nav-li'>
-						<li>
-							{' '}
-							{!this.props.currentUser ? (
-								<NavLink to='/signup'>Signup</NavLink>
-							) : (
-								<span
-									className='logout-button'
-									onClick={this.handleLogout}
-								>
-									logout
-								</span>
-							)}
-						</li>
+						{this.props.currentUser ? (
+							<div onClick={this.toggleDropDown}>
+								<FontAwesomeIcon
+									color='grey'
+									size='2x'
+									icon={faUserAstronaut}
+								/>
+								<Dropdown
+									handleLogout={this.handleLogout}
+									open={this.state.open}
+									user={this.props.currentUser}
+								/>
+							</div>
+						) : (
+							<NavLink to='/login'>Login</NavLink>
+						)}
 					</div>
-					<div className='nav-li'>
-						<li>
-							{this.props.currentUser ? (
-								<span>{this.props.currentUser.firstName}</span>
-							) : (
-								<NavLink to='/login'>Login</NavLink>
-							)}
-						</li>
-					</div>
-				</ul>
+				</div>
 			</nav>
 		);
 	}
