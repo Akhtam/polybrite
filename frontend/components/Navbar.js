@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { NavLink, Redirect } from 'react-router-dom';
 import { logout } from '../actions/session';
 import { connect } from 'react-redux';
@@ -14,6 +15,26 @@ class Navbar extends Component {
 		};
 		this.handleLogout = this.handleLogout.bind(this);
 		this.toggleDropDown = this.toggleDropDown.bind(this);
+		this.setWrapperRef = this.setWrapperRef.bind(this);
+		this.handleClickOutside = this.handleClickOutside.bind(this);
+	}
+
+	componentDidMount() {
+		document.addEventListener('mousedown', this.handleClickOutside);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClickOutside);
+	}
+	setWrapperRef(node) {
+		this.wrapperRef = node;
+	}
+	handleClickOutside(event) {
+		if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+			this.setState({
+				open: false
+			});
+		}
 	}
 
 	toggleDropDown(e) {
@@ -26,7 +47,6 @@ class Navbar extends Component {
 		<Redirect to='/' />;
 	}
 	render() {
-		console.log(this.props)
 		return (
 			<nav>
 				<NavLink to='/' className='logo'>
@@ -39,7 +59,10 @@ class Navbar extends Component {
 
 					<div className='nav-li'>
 						{this.props.currentUser ? (
-							<div onClick={this.toggleDropDown}>
+							<div
+								onClick={this.toggleDropDown}
+								ref={this.setWrapperRef}
+							>
 								<FontAwesomeIcon
 									color='grey'
 									size='2x'

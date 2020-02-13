@@ -28,7 +28,6 @@ export default class ShowCourse extends Component {
 		this.props
 			.deleteCourse(this.props.course.id)
 			.then(res => {
-				debugger
 				this.props.history.push(`/`)
 			});
 	}
