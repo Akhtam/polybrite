@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Navbar from './Navbar';
+import Navbar from './navbar/Navbar';
 import SignupForm from './session/SignupForm';
 import LoginForm from './session/LoginForm';
 import CreateCourseContainer from './courseForm/CreateCourseContainer';

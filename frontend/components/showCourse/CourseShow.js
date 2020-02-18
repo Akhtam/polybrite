@@ -6,15 +6,21 @@ export default class ShowCourse extends Component {
 		this.state = {
 			location: {}
 		};
+		this.handleEnroll = this.handleEnroll.bind(this);
 		this.handleEdit = this.handleEdit.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 	}
+
 	componentDidMount() {
 		this.props.fetchCourse(this.props.match.params.courseId).then(res => {
 			this.setState({
 				location: JSON.parse(res.course.location)
 			});
 		}).catch(err => console.log(err.message))
+
+	}
+	handleEnroll(e) {
+		e.preventDefault();
 
 	}
 
@@ -77,7 +83,7 @@ export default class ShowCourse extends Component {
 					{/* ENROLLLMENT */}
 					<div className='show-button'>
 						<div className='show-button-container'>
-							<button>Enroll</button>
+							<button onClick={this.handleEnroll}>Enroll</button>
 						</div>
 					</div>
 					{/* DESCription */}
