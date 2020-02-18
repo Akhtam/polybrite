@@ -6,7 +6,7 @@ export default class ShowCourse extends Component {
 		this.state = {
 			location: {}
 		};
-		this.handleEnroll = this.handleEnroll.bind(this);
+		this.toggleEnroll = this.toggleEnroll.bind(this);
 		this.handleEdit = this.handleEdit.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 	}
@@ -19,7 +19,7 @@ export default class ShowCourse extends Component {
 		}).catch(err => console.log(err.message))
 
 	}
-	handleEnroll(e) {
+	toggleEnroll(e) {
 		e.preventDefault();
 
 	}
