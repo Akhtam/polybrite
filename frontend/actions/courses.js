@@ -17,9 +17,7 @@ const receiveCourse = course => ({
 const removeCourse = courseId => ({
 	type: REMOVE_COURSE,
 	courseId
-})
-
-
+});
 
 export const fetchCourses = category => dispatch => {
 	return courseApiUtil
@@ -45,5 +43,7 @@ export const updateCourse = course => dispatch => {
 };
 
 export const deleteCourse = courseId => dispatch => {
-	return courseApiUtil.deleteCourse(courseId).then(() => dispatch(removeCourse(courseId)))
-}
+	return courseApiUtil
+		.deleteCourse(courseId)
+		.then(() => dispatch(removeCourse(courseId)));
+};

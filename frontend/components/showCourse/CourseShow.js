@@ -4,24 +4,35 @@ export default class ShowCourse extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			location: {}
+			location: {},
+			enrolledId: null
 		};
-		this.toggleEnroll = this.toggleEnroll.bind(this);
+		this.handleEnroll = this.handleEnroll.bind(this);
 		this.handleEdit = this.handleEdit.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 	}
 
 	componentDidMount() {
-		this.props.fetchCourse(this.props.match.params.courseId).then(res => {
-			this.setState({
-				location: JSON.parse(res.course.location)
-			});
-		}).catch(err => console.log(err.message))
-
+		this.props
+			.fetchCourse(this.props.match.params.courseId)
+			.then(res => {
+				this.setState({
+					location: JSON.parse(res.course.location)
+				});
+			})
+			.catch(err => console.log(err.message));
+		this.props
+			.fetchEnrollments()
+			.then(() => this.setState({ enrolledId: this.props.enrolledId }));
 	}
-	toggleEnroll(e) {
+	handleEnroll(e) {
 		e.preventDefault();
-
+		const { course, currUserId } = this.props;
+		const enrollmentForm = {
+			course_id: course.id,
+			student_id: currUserId
+		};
+		this.props.createEnrollment(enrollmentForm);
 	}
 
 	handleEdit(e) {
@@ -31,15 +42,15 @@ export default class ShowCourse extends Component {
 
 	handleDelete(e) {
 		e.preventDefault();
-		this.props
-			.deleteCourse(this.props.course.id)
-			.then(res => {
-				this.props.history.push(`/`)
-			});
+		this.props.deleteCourse(this.props.course.id).then(res => {
+			this.props.history.push(`/`);
+		});
 	}
 
 	render() {
 		const { currUserId } = this.props;
+		const isEnrolled = this.state.enrolledId !== null ? true : false;
+		console.log(this.state)
 		const {
 			title,
 			description,
@@ -83,7 +94,12 @@ export default class ShowCourse extends Component {
 					{/* ENROLLLMENT */}
 					<div className='show-button'>
 						<div className='show-button-container'>
-							<button onClick={this.handleEnroll}>Enroll</button>
+							<button
+								onClick={this.handleEnroll}
+								className={isEnrolled ? 'enrolled' : ''}
+							>
+								{isEnrolled !== true ? 'Enroll' : 'Enrolled'}
+							</button>
 						</div>
 					</div>
 					{/* DESCription */}
@@ -126,7 +142,9 @@ export default class ShowCourse extends Component {
 					{currUserId && currUserId === creatorId ? (
 						<div className='show-button edit-delete'>
 							<div className='show-button-container delete'>
-								<button onClick={this.handleDelete}>Delete</button>
+								<button onClick={this.handleDelete}>
+									Delete
+								</button>
 							</div>
 							<div className='show-button-container edit'>
 								<button onClick={this.handleEdit}>Edit</button>
