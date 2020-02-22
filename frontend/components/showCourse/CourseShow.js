@@ -50,7 +50,7 @@ export default class ShowCourse extends Component {
 	render() {
 		const { currUserId } = this.props;
 		const isEnrolled = this.state.enrolledId !== null ? true : false;
-		console.log(this.state)
+		console.log(this.state);
 		const {
 			title,
 			description,
