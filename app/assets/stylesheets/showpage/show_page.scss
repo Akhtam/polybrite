@@ -149,6 +149,13 @@ hr.show-hr {
                 background: #00B7BB;
             }
         }
+        .enrolled {
+            background-color: #FE5C5C;
+            &:hover {
+                animation: .4s;
+                background: rgb(247, 56, 56);
+            }
+        }
     }
 
 }
