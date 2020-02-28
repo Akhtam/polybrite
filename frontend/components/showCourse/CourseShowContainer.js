@@ -14,7 +14,6 @@ const mstp = (state, ownProps) => {
 			enrolledId = k;
 		}
 	});
-	console.log(enrolledId);
 
 	return {
 		course: state.entities.courses[ownProps.match.params.courseId],

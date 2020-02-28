@@ -32,6 +32,8 @@ export default class ShowCourse extends Component {
 			course_id: course.id,
 			student_id: currUserId
 		};
+		console.log(e.target);
+		
 		this.props.createEnrollment(enrollmentForm);
 	}
 
