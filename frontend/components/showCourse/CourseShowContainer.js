@@ -9,12 +9,10 @@ const mstp = (state, ownProps) => {
 		: null;
 	let enrolledId = null;
 	Object.entries(state.entities.enrollmets).forEach(([k, v]) => {
-		console.log(v);
 		if (v.courseId === +ownProps.match.params.courseId) {
 			enrolledId = k;
 		}
 	});
-
 	return {
 		course: state.entities.courses[ownProps.match.params.courseId],
 		enrolledId,
