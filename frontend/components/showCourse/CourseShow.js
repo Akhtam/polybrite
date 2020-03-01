@@ -25,6 +25,12 @@ export default class ShowCourse extends Component {
 			.fetchEnrollments()
 			.then(() => this.setState({ enrolledId: this.props.enrolledId }));
 	}
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.enrolledId !== this.props.enrolledId) {
+			this.setState({ enrolledId: this.props.enrolledId });
+		}
+	}
+
 	handleEnroll(e) {
 		e.preventDefault();
 		const { course, currUserId } = this.props;
@@ -32,9 +38,11 @@ export default class ShowCourse extends Component {
 			course_id: course.id,
 			student_id: currUserId
 		};
-		console.log(e.target.innerHTML);
+
 		if (e.target.innerHTML === 'Enroll') {
 			this.props.createEnrollment(enrollmentForm);
+		} else {
+			this.props.removeEnrollment(this.state.enrolledId);
 		}
 	}
 

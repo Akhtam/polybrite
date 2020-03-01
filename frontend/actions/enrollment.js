@@ -24,8 +24,8 @@ export const createEnrollment = formEnrollment => dispatch => {
 	});
 };
 
-export const removeEnrollment = (enrollmentId = dispatch => {
+export const removeEnrollment = enrollmentId => dispatch => {
 	return enrollmentApiUtil
 		.deleteEnrollment(enrollmentId)
-		.then(() => dispatch(receiveEnrollments));
-});
+		.then(() => dispatch(deleteEnrollment(enrollmentId)));
+};
