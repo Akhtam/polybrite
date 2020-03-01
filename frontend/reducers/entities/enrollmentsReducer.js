@@ -9,6 +9,10 @@ const enrollmentReducer = (state = {}, action) => {
 	switch (action.type) {
 		case RECEIVE_ENROLLMENTS:
 			return Object.assign({}, state, action.enrollments);
+		case DELETE_ENROLLMENT:
+			const newState = Object.assign({}, state, action.enrollments);
+			delete newState[action.enrollmentId]
+			return newState
 		default:
 			return state;
 	}

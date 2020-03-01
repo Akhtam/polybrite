@@ -12,3 +12,10 @@ export const fetchEnrollments = () => {
 		url: '/api/enrollments'
 	})
 }
+
+export const deleteEnrollment = enrollmentId => {
+	return $.ajax({
+		method: 'DELETE',
+		url: `/api/enrollments/${enrollmentId}`
+	})
+}
