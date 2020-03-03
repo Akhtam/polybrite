@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, Redirect, withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,6 +16,7 @@ class Navbar extends Component {
 		this.toggleDropDown = this.toggleDropDown.bind(this);
 		this.setWrapperRef = this.setWrapperRef.bind(this);
 		this.handleClickOutside = this.handleClickOutside.bind(this);
+		this.redirectToProfile = this.redirectToProfile.bind(this);
 	}
 
 	componentDidMount() {
@@ -45,6 +46,10 @@ class Navbar extends Component {
 		this.props.logoutUser();
 		<Redirect to='/' />;
 	}
+	redirectToProfile(e) {
+		e.preventDefault();
+		this.props.history.push('/profile');
+	}
 	render() {
 		return (
 			<nav>
@@ -69,6 +74,7 @@ class Navbar extends Component {
 								/>
 								<Dropdown
 									handleLogout={this.handleLogout}
+									redirectToProfile={this.redirectToProfile}
 									open={this.state.open}
 									user={this.props.currentUser}
 								/>
@@ -95,4 +101,4 @@ const mapDispatchToProps = dispatch => ({
 // const mapStateToProps = null;
 // const mapDispatchToProps = null;
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

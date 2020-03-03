@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/RouteUtils';
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Navbar from './navbar/Navbar';
 import SignupForm from './session/SignupForm';
 import LoginForm from './session/LoginForm';
 import CreateCourseContainer from './courseForm/CreateCourseContainer';
 import EditCourseContainer from './courseForm/EditCourseContainer';
-import { AuthRoute, ProtectedRoute } from '../util/RouteUtils';
 import HomePage from './home/HomePage';
 import CourseShowContainer from './showCourse/CourseShowContainer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import Profile from './profile/Profile'
 
 export default class App extends Component {
 	render() {
@@ -22,6 +23,10 @@ export default class App extends Component {
 					<ProtectedRoute
 						path='/courses/new'
 						component={CreateCourseContainer}
+					/>
+					<ProtectedRoute
+						path='/profile'
+						component={Profile}
 					/>
 					<AuthRoute path='/signup' component={SignupForm} />
 					<AuthRoute path='/login' component={LoginForm} />
