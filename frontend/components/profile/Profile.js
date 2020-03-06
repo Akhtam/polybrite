@@ -16,4 +16,4 @@ class Profile extends Component {
 	}
 }
 
-export default Profile;
+export default connect(null, mdtp)(Profile);
