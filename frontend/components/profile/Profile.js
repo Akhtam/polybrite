@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { fetchCourses } from '../../actions/courses'; 
 class Profile extends Component {
     render() {
         return (
