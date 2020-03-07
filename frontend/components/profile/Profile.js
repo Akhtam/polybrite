@@ -7,12 +7,14 @@ import { fetchCourses } from '../../actions/courses';
 
 class Profile extends Component {
 	render() {
-		console.log(this.props)
+		console.log(this.props);
 		return (
 			<div className='profile'>
 				<div className='profile-header'>
 					<div className='profile-header-content'>
-						<FontAwesomeIcon icon={faUserNinja} />
+						<div className="header-icon">
+							<FontAwesomeIcon icon={faUserNinja} size='4x' />
+						</div>
 						<h2>
 							{this.props.firstName} {this.props.lastName}
 						</h2>
@@ -27,7 +29,7 @@ const mdtp = dispatch => ({
 });
 const mstp = state => {
 	const { firstName, lastName } = state.session.currentUser;
-	console.log(state)
+	console.log(state);
 	return { firstName, lastName };
 };
 
