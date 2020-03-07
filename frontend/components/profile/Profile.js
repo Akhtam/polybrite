@@ -11,11 +11,12 @@ class Profile extends Component {
 		return (
 			<div className='profile'>
 				<div className='profile-header'>
-					<FontAwesomeIcon icon={faUserNinja} />
-					<h2>
-						{this.props.firstName}
-						{this.props.lastName}
-					</h2>
+					<div className='profile-header-content'>
+						<FontAwesomeIcon icon={faUserNinja} />
+						<h2>
+							{this.props.firstName} {this.props.lastName}
+						</h2>
+					</div>
 				</div>
 			</div>
 		);

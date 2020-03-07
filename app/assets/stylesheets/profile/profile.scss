@@ -1,3 +1,14 @@
 .profile {
-    height: 100vh;
+	height: 100vh;
+	.profile-header {
+		color: white;
+		background: #54b5b4;
+		height: 120px;
+		border-radius: 5px;
+		width: 96%;
+		margin: 10px auto;
+	}
+	.profile-header-content {
+        display: flex;
+	}
 }
