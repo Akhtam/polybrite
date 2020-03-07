@@ -1,3 +1,25 @@
 .profile {
-    height: 100vh;
+	height: 100vh;
+	.profile-header {
+		color: white;
+		background: linear-gradient(to right, #54b5b4, #f2fcfe);
+		height: 120px;
+		border-radius: 5px;
+		width: 96%;
+		margin: 10px auto;
+	}
+	.profile-header-content {
+		display: flex;
+		padding: 20px;
+		.header-icon {
+			border: 5px solid whitesmoke;
+			border-radius: 10px;
+			padding: 5px;
+		}
+	}
+	h2 {
+		align-self: center;
+		font-size: 2rem;
+		margin-left: 25px;
+	}
 }
