@@ -14,10 +14,15 @@ class Profile extends Component {
 	}
 
 	componentDidMount() {
-		this.props.fetchCourses(this.props.userId);
+		this.props
+			.fetchCourses(this.props.userId)
+			.then(() =>
+				this.setState({ enrolledCourses: this.props.enrolledCourses })
+			);
 	}
 	render() {
-		console.log(this.props);
+		console.log(this.state);
+		console.log(this.props.enrolledCourses);
 		return (
 			<div className='profile'>
 				<div className='profile-header'>
