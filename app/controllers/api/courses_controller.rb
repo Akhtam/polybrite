@@ -14,7 +14,6 @@ class Api::CoursesController < ApplicationController
         else
             @courses = Category.find_by(name: params[:category]).courses 
         end
-        byebug
         render :index
 
     end
