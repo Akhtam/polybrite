@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserNinja } from '@fortawesome/free-solid-svg-icons';
 
 import { fetchCourses } from '../../actions/courses';
+import CourseIndexItem from '../home/CourseIndexItem';
 
 class Profile extends Component {
 	constructor(props) {
@@ -33,6 +34,23 @@ class Profile extends Component {
 						<h2>
 							{this.props.firstName} {this.props.lastName}
 						</h2>
+					</div>
+				</div>
+				<div className='profile-h2'>
+					Enrolled Courses ({this.state.enrolledCourses.length})
+				</div>
+				<hr />
+				<div className='course-index'>
+					<div className='course-feed'>
+						{this.state.enrolledCourses.map(course => {
+							return (
+								<CourseIndexItem
+									course={course}
+									key={course.id}
+									history={this.props.history}
+								/>
+							);
+						})}
 					</div>
 				</div>
 			</div>
