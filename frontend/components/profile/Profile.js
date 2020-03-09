@@ -36,6 +36,10 @@ class Profile extends Component {
 						</h2>
 					</div>
 				</div>
+				<div className='profile-h2'>
+					Enrolled Courses ({this.state.enrolledCourses.length})
+				</div>
+				<hr />
 				<div className='course-index'>
 					<div className='course-feed'>
 						{this.state.enrolledCourses.map(course => {
