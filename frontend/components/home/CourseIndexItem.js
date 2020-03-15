@@ -25,13 +25,13 @@ const CourseIndexItem = ({ course, history }) => {
 							{[...dayMonth, time].join(' ')}
 						</div>
 						<div className='course-title'>
-							<h3
+							<h2
 								onClick={() =>
 									history.push(`courses/${course.id}`)
 								}
 							>
 								{title}
-							</h3>
+							</h2>
 						</div>
 						<div className='course-address'>{`${city}, ${venue}`}</div>
 					</main>
