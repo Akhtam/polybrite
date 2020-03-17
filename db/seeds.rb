@@ -19,6 +19,7 @@ u1 = User.create!(email: 'tutu@gmail.com', first_name: 'Jim', last_name: 'Halper
 u2 = User.create!(email: 'rara@gmail.com', first_name: 'Mic', last_name: 'Scarn', password: '5454343242')
 u3 = User.create!(email: 'bobo@gmail.com', first_name: 'Creed', last_name: 'Cr', password: '8765432431')
 u4 = User.create!(email: 'lolo@gmail.com', first_name: 'Yosho', last_name: 'None', password: '84354321')
+u5 = User.create!(email: 'lol@gmail.com', first_name: 'Yosha', last_name: 'None', password: '84354321')
 
 #CATEGORIES
 music = Category.create!(name: 'Music')
