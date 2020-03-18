@@ -22,8 +22,6 @@ class Profile extends Component {
 			);
 	}
 	render() {
-		console.log(this.state);
-		console.log(this.props.enrolledCourses);
 		return (
 			<div className='profile'>
 				<div className='profile-header'>
