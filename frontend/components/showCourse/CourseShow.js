@@ -21,9 +21,13 @@ export default class ShowCourse extends Component {
 				});
 			})
 			.catch(err => console.log(err.message));
-		this.props
-			.fetchEnrollments()
-			.then(() => this.setState({ enrolledId: this.props.enrolledId }));
+		if (this.props.enrolledId) {
+			this.props
+				.fetchEnrollments()
+				.then(() =>
+					this.setState({ enrolledId: this.props.enrolledId })
+				);
+		}
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps.enrolledId !== this.props.enrolledId) {
