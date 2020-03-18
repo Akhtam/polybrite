@@ -12,7 +12,6 @@ const mstp = (state, ownProps) => {
 		? state.session.currentUser.id
 		: null;
 	let enrolledId = null;
-	console.log(state.entities, 'from mstp');
 	Object.entries(state.entities.enrollments).forEach(([k, v]) => {
 		if (v.courseId === +ownProps.match.params.courseId) {
 			enrolledId = k;
