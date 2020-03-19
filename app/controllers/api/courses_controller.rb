@@ -1,9 +1,8 @@
 class Api::CoursesController < ApplicationController
     def index
-        # byebug
         if params[:category] == 'All'
             @courses = Course.all
-        elsif params[:category].to_i.is_a? Numeric 
+        elsif !params[:category].is_a? String
             @courses = [];
             @enrollments = Enrollment.find_by(student_id: params[:category])
             if @enrollments.is_a? Array
@@ -15,7 +14,6 @@ class Api::CoursesController < ApplicationController
             @courses = Category.find_by(name: params[:category]).courses 
         end
         render :index
-
     end
 
     def show
