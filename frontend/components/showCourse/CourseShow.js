@@ -82,6 +82,7 @@ export default class ShowCourse extends Component {
 			.slice(0, 3);
 		const loctime = new Date(startDate).toLocaleTimeString().split(' ');
 		const time = loctime[0].slice(0, 4) + ' ' + loctime[1];
+		console.log(currUserId === creatorId)
 		return (
 			<div>
 				<header className='show-header'>
@@ -106,16 +107,20 @@ export default class ShowCourse extends Component {
 						</div>
 					</div>
 					{/* ENROLLLMENT */}
-					<div className='show-button'>
-						<div className='show-button-container'>
-							<button
-								onClick={this.handleEnroll}
-								className={isEnrolled ? 'enrolled' : ''}
-							>
-								{isEnrolled !== true ? 'Enroll' : 'Enrolled'}
-							</button>
+					{currUserId !== creatorId ? (
+						<div className='show-button'>
+							<div className='show-button-container'>
+								<button
+									onClick={this.handleEnroll}
+									className={isEnrolled ? 'enrolled' : ''}
+								>
+									{isEnrolled !== true
+										? 'Enroll'
+										: 'Enrolled'}
+								</button>
+							</div>
 						</div>
-					</div>
+					) : null}
 					{/* DESCription */}
 					<div className='main-description'>
 						<div className='mm-description'>
