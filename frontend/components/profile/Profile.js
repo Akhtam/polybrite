@@ -37,6 +37,9 @@ class Profile extends Component {
 				<div className='profile-h2'>
 					Enrolled Courses ({this.state.enrolledCourses.length})
 				</div>
+				<div className='profile-h2'>
+					Created Courses (1)
+				</div>
 				<hr />
 				<div className='course-index'>
 					<div className='course-feed'>
