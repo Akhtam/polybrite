@@ -31,7 +31,7 @@ const AboutForm = ({ handleFile, handleChange, state, handleLocation }) => {
 					/>
 				</label>
 				<div className='upload-btn-wrapper'>
-					<button className='btn required'>Upload a file</button>
+					<button className='btn required'>Upload a photo</button>
 					<input type='file' name='myfile' onChange={handleFile} />
 					<span>{state.photoFile ? state.photoFile.name : ''}</span>
 				</div>
