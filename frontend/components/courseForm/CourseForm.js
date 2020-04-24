@@ -14,16 +14,16 @@ class CourseForm extends Component {
 	}
 
 	handleLocation(locType) {
-		return e => {
+		return (e) => {
 			this.setState({
-				location: { ...this.state.location, [locType]: e.target.value }
+				location: { ...this.state.location, [locType]: e.target.value },
 			});
 		};
 	}
 	handleChange(inputType) {
-		return e => {
+		return (e) => {
 			this.setState({
-				[inputType]: e.target.value
+				[inputType]: e.target.value,
 			});
 		};
 	}
@@ -31,14 +31,14 @@ class CourseForm extends Component {
 	handleFile(e) {
 		e.preventDefault();
 		this.setState({
-			photoFile: e.target.files[0]
+			photoFile: e.target.files[0],
 		});
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 		let loc = {
-			location: JSON.stringify(this.state.location)
+			location: JSON.stringify(this.state.location),
 		};
 		const startDate = new Date(
 			`${this.state.startDate} ${this.state.startTime}`
@@ -61,7 +61,9 @@ class CourseForm extends Component {
 		}
 		this.props
 			.action(formData)
-			.then(res => this.props.history.push(`/courses/${res.course.id}`));
+			.then((res) => {
+				this.props.history.push(`/courses/${res.course.id}`);
+			})
 	}
 
 	render() {
@@ -69,6 +71,7 @@ class CourseForm extends Component {
 			this.props.formTypeTop !== 'Enlighten'
 				? 'Edit your Course'
 				: 'Create a Course';
+		const { errors } = this.props;
 		return (
 			<div className='main-form-content'>
 				<div className='nav-form'>
@@ -118,6 +121,13 @@ class CourseForm extends Component {
 							{this.props.formTypeDown}
 						</button>
 					</div>
+					{errors.length ? (
+						<div className='errors'>
+							<ul>Please fill out all required fields!</ul>
+						</div>
+					) : (
+						''
+					)}
 				</div>
 			</div>
 		);
