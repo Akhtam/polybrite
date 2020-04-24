@@ -12,6 +12,9 @@ class CourseForm extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleFile = this.handleFile.bind(this);
 	}
+	UNSAFE_componentWillMount() {
+		this.props.clearErrors();
+	}
 
 	handleLocation(locType) {
 		return (e) => {

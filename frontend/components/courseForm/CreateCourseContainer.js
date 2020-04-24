@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createCourse } from '../../actions/courses';
+import { createCourse, clearErrors } from '../../actions/courses';
 import CourseForm from './CourseForm';
 
 const mstp = state => {
@@ -30,7 +30,8 @@ const mstp = state => {
 }};
 
 const mdtp = dispatch => ({
-    action: courseForm => dispatch(createCourse(courseForm))
+	action: courseForm => dispatch(createCourse(courseForm)),
+	clearErrors: () => dispatch(clearErrors())
 })
 
 export default connect(mstp, mdtp)(CourseForm)
