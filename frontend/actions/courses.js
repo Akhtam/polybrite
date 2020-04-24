@@ -3,6 +3,7 @@ import * as courseApiUtil from '../util/courseApiUtil';
 export const RECEIVE_COURSES = 'RECEIVE_COURSES';
 export const RECEIVE_COURSE = 'RECEIVE_COURSE';
 export const REMOVE_COURSE = 'REMOVE_COURSE';
+export const RECEIVE_FORM_ERRORS = 'RECEIVE_FORM_ERRORS';
 
 const receiveCourses = courses => ({
 	type: RECEIVE_COURSES,
@@ -19,6 +20,12 @@ const removeCourse = courseId => ({
 	courseId
 });
 
+const receiveFormErrors = errors => ({
+	type: RECEIVE_FORM_ERRORS,
+	errors
+})
+
+
 export const fetchCourses = category => dispatch => {
 	return courseApiUtil
 		.fetchCourses(category)
@@ -33,7 +40,8 @@ export const fetchCourse = courseId => dispatch => {
 export const createCourse = formCourse => dispatch => {
 	return courseApiUtil
 		.createCourse(formCourse)
-		.then(res => dispatch(receiveCourse(res.course)));
+		.then(res => dispatch(receiveCourse(res.course)))
+		.fail(err => dispatch(receiveFormErrors(err.statusText)))
 };
 
 export const updateCourse = course => dispatch => {

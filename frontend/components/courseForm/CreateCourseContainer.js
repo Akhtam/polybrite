@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { createCourse } from '../../actions/courses';
 import CourseForm from './CourseForm';
 
-const mstp = state => ({
+const mstp = state => {
+	return {
 	course: {
 		title: '',
 		description: '',
@@ -22,8 +23,11 @@ const mstp = state => ({
 		topicId: ''
 	},
 	formTypeTop: 'Enlighten',
-	formTypeDown: 'Make Your Course Live'
-});
+	formTypeDown: 'Make Your Course Live',
+	errors: state.errors.createCourseErrors
+
+	
+}};
 
 const mdtp = dispatch => ({
     action: courseForm => dispatch(createCourse(courseForm))
