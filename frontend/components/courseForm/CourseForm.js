@@ -12,6 +12,9 @@ class CourseForm extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleFile = this.handleFile.bind(this);
 	}
+	UNSAFE_componentWillMount() {
+		this.props.clearErrors();
+	}
 
 	handleLocation(locType) {
 		return (e) => {
@@ -59,11 +62,9 @@ class CourseForm extends Component {
 		if (this.state.courseId) {
 			formData.append('course[course_id]', this.state.courseId);
 		}
-		this.props
-			.action(formData)
-			.then((res) => {
-				this.props.history.push(`/courses/${res.course.id}`);
-			})
+		this.props.action(formData).then((res) => {
+			this.props.history.push(`/courses/${res.course.id}`);
+		});
 	}
 
 	render() {
@@ -123,7 +124,9 @@ class CourseForm extends Component {
 					</div>
 					{errors.length ? (
 						<div className='errors'>
-							<ul>Please fill out all required fields!</ul>
+							<span className='required'>
+								Please fill out all the required fields!
+							</span>
 						</div>
 					) : (
 						''
