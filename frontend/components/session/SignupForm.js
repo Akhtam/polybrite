@@ -111,7 +111,7 @@ class SignupForm extends Component {
 							<div className='or'> or </div>
 
 							<div className='redirect-session'>
-								<span>Don't have Polybrite account?</span>
+								<span>Already have an account?</span>
 
 								<NavLink to='/login'>Login</NavLink>
 							</div>
