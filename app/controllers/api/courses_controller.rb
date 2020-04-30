@@ -2,7 +2,7 @@ class Api::CoursesController < ApplicationController
     def index
         if params[:category] == 'All'
             @courses = Course.all
-        elsif !params[:category].to_i.is_a? String
+        elsif params[:category].to_i != 0
             @courses = [];
             @enrollments = Enrollment.where(student_id: params[:category])
             @enrollments.each{|e| @courses << Course.find(e.course_id)}
