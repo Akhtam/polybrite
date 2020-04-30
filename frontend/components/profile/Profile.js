@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserNinja } from '@fortawesome/free-solid-svg-icons';
 
 import { fetchCourses } from '../../actions/courses';
+
 import CourseIndexItem from '../home/CourseIndexItem';
 
 class Profile extends Component {
