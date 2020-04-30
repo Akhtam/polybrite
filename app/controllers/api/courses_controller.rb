@@ -4,12 +4,8 @@ class Api::CoursesController < ApplicationController
             @courses = Course.all
         elsif !params[:category].to_i.is_a? String
             @courses = [];
-            @enrollments = Enrollment.find_by(student_id: params[:category])
-            if @enrollments.is_a? Array
-                @enrollments.each{|e| @courses << Course.find(e.course_id)}
-            elsif !@enrollments.nil? 
-                @courses << Course.find(@enrollments.course_id)
-            end
+            @enrollments = Enrollment.where(student_id: params[:category])
+            @enrollments.each{|e| @courses << Course.find(e.course_id)}
         else
             @courses = Category.find_by(name: params[:category]).courses 
         end
