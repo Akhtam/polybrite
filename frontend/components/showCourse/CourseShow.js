@@ -30,6 +30,7 @@ export default class ShowCourse extends Component {
 		}
 	}
 	componentDidUpdate(prevProps, prevState) {
+		this.props.fetchEnrollments()
 		if (prevProps.enrolledId !== this.props.enrolledId) {
 			this.setState({ enrolledId: this.props.enrolledId });
 		}
