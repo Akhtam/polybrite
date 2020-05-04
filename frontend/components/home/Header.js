@@ -11,7 +11,7 @@ const Header = () => {
 							Are you looking to master new skill? Do you have a
 							talent to share with others? With Polybrite, you can
 							create and host your own in-person classes or attend
-							workshops, events and classesof all kinds from
+							workshops, events and classes of all kinds from
 							people who have hands on knowledge. Start your
 							search below!
 						</p>
