@@ -8,7 +8,7 @@ const Header = () => {
 					<div className='poly-name-p'>
 						<h1 className='mission-header'>Master new Skills</h1>
 						<p className='mission-description'>
-							Are you looking to master new skill? Do have a
+							Are you looking to master new skill? Do you have a
 							talent to share with others? With Polybrite, you can
 							create and host your own in-person classes or attend
 							workshops, events and classesof all kinds from
