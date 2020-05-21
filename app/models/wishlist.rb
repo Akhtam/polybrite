@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: enrollments
+# Table name: wishlists
 #
 #  id         :bigint           not null, primary key
 #  created_at :datetime         not null
@@ -10,14 +10,14 @@
 #
 # Indexes
 #
-#  index_enrollments_on_course_id   (course_id)
-#  index_enrollments_on_student_id  (student_id)
+#  index_wishlists_on_course_id   (course_id)
+#  index_wishlists_on_student_id  (student_id)
 #
 
-class Enrollment < ApplicationRecord
+class Wishlist < ApplicationRecord
   validates :course_id, :student_id, presence: true
   validates :student_id, uniqueness: {scope: :course_id} 
   belongs_to :course
   belongs_to :student,
-    class_name: 'User'
+   class_name: 'User'
 end
