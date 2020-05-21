@@ -33,6 +33,9 @@ class User < ApplicationRecord
   has_many :enrollments,
     foreign_key: :student_id,
     dependent: :destroy
+  has_many :wishlists,
+    foreign_key: :student_id,
+    dependent: :destroy
   
 
   def self.find_by_credentials(email,password)
