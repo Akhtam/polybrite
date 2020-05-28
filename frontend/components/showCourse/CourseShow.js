@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 export default class ShowCourse extends Component {
 	constructor(props) {
@@ -98,6 +100,12 @@ export default class ShowCourse extends Component {
 									<p>{dayMonth[1]}</p>
 									<p>{dayMonth[2]}</p>
 								</time>
+								<div className='show-wishlist'>
+									<div className='wishlist-icon'>
+										<FontAwesomeIcon icon={faHeart} size='2x' color='grey' />
+									</div>
+									<span>Wishlist</span>
+								</div>
 							</div>
 							<div className='main-info-title'>
 								<h1>{title}</h1>
@@ -114,9 +122,7 @@ export default class ShowCourse extends Component {
 									onClick={this.handleEnroll}
 									className={isEnrolled ? 'enrolled' : ''}
 								>
-									{isEnrolled !== true
-										? 'Enroll'
-										: 'Enrolled'}
+									{isEnrolled !== true ? 'Enroll' : 'Enrolled'}
 								</button>
 							</div>
 						</div>
@@ -136,12 +142,8 @@ export default class ShowCourse extends Component {
 									{dayMonth.join(' ')} - {time}
 								</div>
 								<h3>Location</h3>
-								<div className='location'>
-									{this.state.location.city}
-								</div>
-								<div className='location'>
-									{this.state.location.venue}
-								</div>
+								<div className='location'>{this.state.location.city}</div>
+								<div className='location'>{this.state.location.venue}</div>
 							</div>
 						</div>
 						<hr className='show-hr' />
@@ -161,9 +163,7 @@ export default class ShowCourse extends Component {
 					{currUserId && currUserId === creatorId ? (
 						<div className='show-button edit-delete'>
 							<div className='show-button-container delete'>
-								<button onClick={this.handleDelete}>
-									Delete
-								</button>
+								<button onClick={this.handleDelete}>Delete</button>
 							</div>
 							<div className='show-button-container edit'>
 								<button onClick={this.handleEdit}>Edit</button>
