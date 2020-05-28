@@ -14,7 +14,6 @@ const deleteWishlist = wishlistId => ({
 
 export const fetchWishlists = () => dispatch => {
 	return wishlistApiUtil.fetchWishlists().then(res => {
-		console.log(res)
 		return dispatch(receiveWishlists(res));
 	});
 };
