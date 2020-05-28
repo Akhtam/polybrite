@@ -7,9 +7,11 @@ export default class ShowCourse extends Component {
 		super(props);
 		this.state = {
 			location: {},
-			enrolledId: null
+			enrolledId: null,
+			wishlistId: null,
 		};
-		this.handleEnroll = this.handleEnroll.bind(this);
+		this.toggleEnroll = this.toggleEnroll.bind(this);
+		this.toggleWishlist = this.toggleWishlist.bind(this);
 		this.handleEdit = this.handleEdit.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 	}
@@ -19,37 +21,53 @@ export default class ShowCourse extends Component {
 			.fetchCourse(this.props.match.params.courseId)
 			.then(res => {
 				this.setState({
-					location: JSON.parse(res.course.location)
+					location: JSON.parse(res.course.location),
 				});
 			})
 			.catch(err => console.log(err.message));
-		if (this.props.enrolledId) {
-			this.props
-				.fetchEnrollments()
-				.then(() =>
-					this.setState({ enrolledId: this.props.enrolledId })
-				);
-		}
+		this.props
+			.fetchEnrollments()
+			.then(() => this.setState({ enrolledId: this.props.enrolledId }));
+
+		this.props
+			.fetchWishlists()
+			.then(() => this.setState({ wishlistId: this.props.wishlistId }));
 	}
 	componentDidUpdate(prevProps, prevState) {
-		this.props.fetchEnrollments()
+		this.props.fetchEnrollments();
 		if (prevProps.enrolledId !== this.props.enrolledId) {
 			this.setState({ enrolledId: this.props.enrolledId });
 		}
+		if (prevProps.wishlistId !== this.props.wishlistId) {
+			this.setState({ wishlistId: this.props.wishlistId });
+		}
 	}
 
-	handleEnroll(e) {
+	toggleEnroll(e) {
 		e.preventDefault();
 		const { course, currUserId } = this.props;
 		const enrollmentForm = {
 			course_id: course.id,
-			student_id: currUserId
+			student_id: currUserId,
 		};
 
 		if (e.target.innerHTML === 'Enroll') {
 			this.props.createEnrollment(enrollmentForm);
 		} else {
 			this.props.removeEnrollment(this.state.enrolledId);
+		}
+	}
+	toggleWishlist(e) {
+		e.preventDefault();
+		const { course, currUserId } = this.props;
+		const wishlistForm = {
+			course_id: course.id,
+			student_id: currUserId,
+		};
+		if (e.currentTarget.lastChild.innerHTML === 'Wishlist') {
+			this.props.createWishlist(wishlistForm);
+		} else {
+			this.props.removeWishlist(this.state.wishlistId);
 		}
 	}
 
@@ -68,6 +86,7 @@ export default class ShowCourse extends Component {
 	render() {
 		const { currUserId } = this.props;
 		const isEnrolled = this.state.enrolledId !== null ? true : false;
+		const isWishlisted = this.state.wishlistId !== null ? true : false;
 		const {
 			title,
 			description,
@@ -77,12 +96,9 @@ export default class ShowCourse extends Component {
 			aboutCreator,
 			size,
 			photoUrl,
-			creatorId
+			creatorId,
 		} = this.props.course ? this.props.course : {};
-		const dayMonth = new Date(startDate)
-			.toDateString()
-			.split(' ')
-			.slice(0, 3);
+		const dayMonth = new Date(startDate).toDateString().split(' ').slice(0, 3);
 		const loctime = new Date(startDate).toLocaleTimeString().split(' ');
 		const time = loctime[0].slice(0, 4) + ' ' + loctime[1];
 		return (
@@ -100,11 +116,15 @@ export default class ShowCourse extends Component {
 									<p>{dayMonth[1]}</p>
 									<p>{dayMonth[2]}</p>
 								</time>
-								<div className='show-wishlist'>
+								<div className='show-wishlist' onClick={this.toggleWishlist}>
 									<div className='wishlist-icon'>
-										<FontAwesomeIcon icon={faHeart} size='2x' color='grey' />
+										<FontAwesomeIcon
+											icon={faHeart}
+											size='2x'
+											color={isWishlisted ? 'orangered' : 'grey'}
+										/>
 									</div>
-									<span>Wishlist</span>
+									<span>{!isWishlisted ? 'Wishlist' : 'Wishlisted'}</span>
 								</div>
 							</div>
 							<div className='main-info-title'>
@@ -119,7 +139,7 @@ export default class ShowCourse extends Component {
 						<div className='show-button'>
 							<div className='show-button-container'>
 								<button
-									onClick={this.handleEnroll}
+									onClick={this.toggleEnroll}
 									className={isEnrolled ? 'enrolled' : ''}
 								>
 									{isEnrolled !== true ? 'Enroll' : 'Enrolled'}

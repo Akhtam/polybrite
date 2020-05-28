@@ -1,5 +1,6 @@
 class Api::WishlistsController < ApplicationController
     def index
+        # byebug
         @wishlists = User.find(current_user.id).wishlists;
     end
     def create 
