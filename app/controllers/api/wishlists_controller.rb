@@ -1,4 +1,4 @@
-class Api::WishlistController < ApplicationController
+class Api::WishlistsController < ApplicationController
     def index
         @wishlists = User.find(current_user.id).wishlists;
     end
