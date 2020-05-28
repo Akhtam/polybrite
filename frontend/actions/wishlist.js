@@ -14,17 +14,18 @@ const deleteWishlist = wishlistId => ({
 
 export const fetchWishlists = () => dispatch => {
 	return wishlistApiUtil.fetchWishlists().then(res => {
+		console.log(res)
 		return dispatch(receiveWishlists(res));
 	});
 };
 
-export const createEnrollment = formEnrollment => dispatch => {
-	return wishlistApiUtil.enrollToCourse(formEnrollment).then(res => {
+export const createWishlist = formWishlist => dispatch => {
+	return wishlistApiUtil.addToWishList(formWishlist).then(res => {
 		return dispatch(receiveWishlists(res));
 	});
 };
 
-export const removeWishlist  = wishlistId => dispatch => {
+export const removeWishlist = wishlistId => dispatch => {
 	return wishlistApiUtil
 		.deleteWishlist(wishlistId)
 		.then(() => dispatch(deleteWishlist(wishlistId)));
