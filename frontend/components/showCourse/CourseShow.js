@@ -116,16 +116,18 @@ export default class ShowCourse extends Component {
 									<p>{dayMonth[1]}</p>
 									<p>{dayMonth[2]}</p>
 								</time>
-								<div className='show-wishlist' onClick={this.toggleWishlist}>
-									<div className='wishlist-icon'>
-										<FontAwesomeIcon
-											icon={faHeart}
-											size='2x'
-											color={isWishlisted ? 'orangered' : 'grey'}
-										/>
+								{!isEnrolled ? (
+									<div className='show-wishlist' onClick={this.toggleWishlist}>
+										<div className='wishlist-icon'>
+											<FontAwesomeIcon
+												icon={faHeart}
+												size='2x'
+												color={isWishlisted ? 'orangered' : 'grey'}
+											/>
+										</div>
+										<span>{!isWishlisted ? 'Wishlist' : 'Wishlisted'}</span>
 									</div>
-									<span>{!isWishlisted ? 'Wishlist' : 'Wishlisted'}</span>
-								</div>
+								) : null}
 							</div>
 							<div className='main-info-title'>
 								<h1>{title}</h1>
