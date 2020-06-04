@@ -39,7 +39,7 @@ class LoginForm extends Component {
 	handleDemoUser(e) {
 		e.preventDefault();
 		const { loginUser } = this.props;
-		loginUser({ email: 'tartar@gmail.com', password: '654321' });
+		loginUser({ email: 'demouser@gmail.com', password: '123456' });
 	}
 
 	render() {

@@ -1,9 +1,9 @@
 
 const axios = require('axios');
 
-export const fetchCourses = (category) => {
+export const fetchCourses = (category, enrollmentOrWishlist = '') => {
 	return $.ajax({
-		url: `/api/courses?category=${category}`,
+		url: `/api/courses?category=${category}&ew=${enrollmentOrWishlist}`,
 		method: 'GET'
 	});
 };

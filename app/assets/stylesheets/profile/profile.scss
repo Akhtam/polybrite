@@ -25,10 +25,24 @@
 		font-size: 2rem;
 		margin-left: 25px;
 	}
-	.profile-h2 {
-		align-self: center;
-		font-size: 1.2rem;
-		margin-left: 35px;
-		margin-bottom: 10px;
+	.profile-ew {
+		display: flex;
+		margin: 10px;
+		.profile-h2 {
+			color: white;
+			padding: 12px;
+			margin: 15px;
+			cursor: pointer;
+			width: 20%;
+			text-align: center;
+			border-radius: 8px;
+		}
+		.active {
+			background: #f06d6d;
+			box-shadow: 0 5px 7px 0 #b64040;
+		}
+		.inactive {
+			background: #b0a8b9;
+		}
 	}
 }
