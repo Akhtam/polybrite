@@ -25,6 +25,7 @@ export default class ShowCourse extends Component {
 				});
 			})
 			.catch(err => console.log(err.message));
+			
 		this.props
 			.fetchEnrollments()
 			.then(() => this.setState({ enrolledId: this.props.enrolledId }));
@@ -52,6 +53,9 @@ export default class ShowCourse extends Component {
 		};
 
 		if (e.target.innerHTML === 'Enroll') {
+			if(this.state.wishlistId) {
+				this.props.removeWishlist(this.state.wishlistId);
+			}
 			this.props.createEnrollment(enrollmentForm);
 		} else {
 			this.props.removeEnrollment(this.state.enrolledId);
