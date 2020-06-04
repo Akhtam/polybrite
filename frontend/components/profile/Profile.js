@@ -11,18 +11,27 @@ class Profile extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			enrolledCourses: []
+			courses: [],
+			enrollmentOrWishlist: 'enrollments',
 		};
+		this.toggleCourses = this.toggleCourses.bind(this);
 	}
 
 	componentDidMount() {
 		this.props
-			.fetchCourses(this.props.userId)
+			.fetchCourses(this.props.userId, this.state.enrollmentOrWishlist)
+			.then(() => this.setState({ courses: this.props.courses }));
+	}
+	toggleCourses(enrollmentOrWishlist) {
+		this.props
+			.fetchCourses(this.props.userId, enrollmentOrWishlist)
 			.then(() =>
-				this.setState({ enrolledCourses: this.props.enrolledCourses })
+				this.setState({ courses: this.props.courses, enrollmentOrWishlist })
 			);
 	}
 	render() {
+		const active =
+			this.state.enrollmentOrWishlist === 'enrollments' ? true : false;
 		return (
 			<div className='profile'>
 				<div className='profile-header'>
@@ -35,13 +44,24 @@ class Profile extends Component {
 						</h2>
 					</div>
 				</div>
-				<div className='profile-h2'>
-					Enrolled Courses ({this.state.enrolledCourses.length})
+				<div className='profile-ew'>
+					<div
+						className={`profile-h2 ${active ? 'active' : 'inactive'}`}
+						onClick={() => this.toggleCourses('enrollments')}
+					>
+						ENROLLED COURSES
+					</div>
+					<div
+						className={`profile-h2 ${!active ? 'active' : 'inactive'}`}
+						onClick={() => this.toggleCourses('wishlists')}
+					>
+						WISHLISTED COURSES
+					</div>
 				</div>
 				<hr />
 				<div className='course-index'>
 					<div className='course-feed'>
-						{this.state.enrolledCourses.map(course => {
+						{this.state.courses.map(course => {
 							return (
 								<CourseIndexItem
 									course={course}
@@ -57,12 +77,13 @@ class Profile extends Component {
 	}
 }
 const mdtp = dispatch => ({
-	fetchCourses: userId => dispatch(fetchCourses(userId))
+	fetchCourses: (userId, enrollmentOrWishlist) =>
+		dispatch(fetchCourses(userId, enrollmentOrWishlist)),
 });
 const mstp = state => {
 	const { firstName, lastName, id } = state.session.currentUser;
-	const enrolledCourses = Object.values(state.entities.courses);
-	return { firstName, lastName, enrolledCourses, userId: id };
+	const courses = Object.values(state.entities.courses);
+	return { firstName, lastName, courses, userId: id };
 };
 
 export default connect(mstp, mdtp)(Profile);

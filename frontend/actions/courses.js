@@ -28,9 +28,9 @@ const receiveFormErrors = (errors) => ({
 
 export const clearErrors = () => ({ type: CLEAR_ERRORS });
 
-export const fetchCourses = (category) => (dispatch) => {
+export const fetchCourses = (category, enrollmentOrWishlist = '') => (dispatch) => {
 	return courseApiUtil
-		.fetchCourses(category)
+		.fetchCourses(category, enrollmentOrWishlist)
 		.then((res) => dispatch(receiveCourses(res)));
 };
 export const fetchCourse = (courseId) => (dispatch) => {

@@ -4,8 +4,13 @@ class Api::CoursesController < ApplicationController
             @courses = Course.all
         elsif params[:category].to_i != 0
             @courses = [];
-            @enrollments = Enrollment.where(student_id: params[:category])
-            @enrollments.each{|e| @courses << Course.find(e.course_id)}
+            if params[:ew] == 'enrollments'
+                @enrollments = Enrollment.where(student_id: params[:category])
+                @enrollments.each{|e| @courses << Course.find(e.course_id)}
+            else
+                @wishlist = Wishlist.where(student_id: params[:category])
+                @wishlist.each{|e| @courses << Course.find(e.course_id)}
+            end
         else
             @courses = Category.find_by(name: params[:category]).courses 
         end
