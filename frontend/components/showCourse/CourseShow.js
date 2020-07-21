@@ -25,7 +25,7 @@ export default class ShowCourse extends Component {
 				});
 			})
 			.catch(err => console.log(err.message));
-			
+
 		this.props
 			.fetchEnrollments()
 			.then(() => this.setState({ enrolledId: this.props.enrolledId }));
@@ -47,13 +47,17 @@ export default class ShowCourse extends Component {
 	toggleEnroll(e) {
 		e.preventDefault();
 		const { course, currUserId } = this.props;
+		if (!currUserId) {
+			alert('Please Login');
+			return;
+		}
 		const enrollmentForm = {
 			course_id: course.id,
 			student_id: currUserId,
 		};
 
 		if (e.target.innerHTML === 'Enroll') {
-			if(this.state.wishlistId) {
+			if (this.state.wishlistId) {
 				this.props.removeWishlist(this.state.wishlistId);
 			}
 			this.props.createEnrollment(enrollmentForm);
@@ -64,6 +68,10 @@ export default class ShowCourse extends Component {
 	toggleWishlist(e) {
 		e.preventDefault();
 		const { course, currUserId } = this.props;
+		if (!currUserId) {
+			alert('Please Login');
+			return;
+		}
 		const wishlistForm = {
 			course_id: course.id,
 			student_id: currUserId,
