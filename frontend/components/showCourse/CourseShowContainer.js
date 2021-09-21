@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CourseShow from './CourseShow';
+import { ShowCourse } from './ShowCourse';
 import { fetchCourse, deleteCourse } from '../../actions/courses';
 import {
 	createEnrollment,
@@ -11,6 +11,7 @@ import {
 	createWishlist,
 	removeWishlist,
 } from '../../actions/wishlist';
+
 const mstp = (state, ownProps) => {
 	const currUserId = state.session.currentUser
 		? state.session.currentUser.id
@@ -46,4 +47,4 @@ const mdtp = dispatch => ({
 	removeWishlist: wishlistId => dispatch(removeWishlist(wishlistId)),
 });
 
-export default connect(mstp, mdtp)(CourseShow);
+export default connect(mstp, mdtp)(ShowCourse);
